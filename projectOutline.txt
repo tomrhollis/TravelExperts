@@ -1,0 +1,27 @@
+Group Roles:
+
+Repo Man: Tom
+  - github: settings > collaborators
+
+Project Manager: 
+  - set up some kind of collaboration tool
+
+User Experience:
+  - check for useability/aesthetics
+
+4th Role Ideas:
+  -QA?
+  -DBA?
+
+What are we naming the project?
+ Travel Experts
+
+Project order:
+* HTML
+  - one per person
+    Main: Ivan
+    Contact: Ivan
+    Vacation Packages: Muhammad
+    Registration: Tom
+* CSS (all do it, take best bits from all)
+* JS
