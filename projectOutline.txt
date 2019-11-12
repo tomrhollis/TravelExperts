@@ -23,5 +23,5 @@ Project order:
     Contact: Ivan
     Vacation Packages: Muhammad
     Registration: Tom
-* CSS (all do it, take best bits from all)
+* CSS (all do it, UX guy takes best bits from all)
 * JS
