@@ -18,8 +18,21 @@ Primary Author: Tom Hollis
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		-->
 		
-		<!--<link rel=stylesheet" href="main.css" /> MAIN STYLESHEET -->
-		
+		<!--<link rel="stylesheet" href="main.css" /> MAIN STYLESHEET -->
+		<style><!-- @TODO: make it all pretty -->
+			form{
+			}
+			fieldset{
+			}
+			legend{
+			}
+			label{
+			}
+			input{
+			}
+			.formline{				
+			}
+		</style>
 		<title>Travel Experts - Registration</title>
 	</head>
 	
@@ -27,8 +40,78 @@ Primary Author: Tom Hollis
 		<header>
 		</header>
 		<main>
+			<form method="post" action="localhost/bouncer.php" target="_blank">
+				<fieldset>
+					<legend>What to Call You:</legend>
+					<div class="formline">
+						<label for="fname">First Name:</label> <input type="text" name="fname" id="fname" placeholder="Sam" />
+						<label for="lname">Last Name:</label> <input type="text" name="lname" id="lname" placeholder="Doe" />
+					</div>
+					<div class="formline">
+						<label for="uname">Username:</label> <input type="text" name="uname" id="uname" placeholder="SamDoe1234" required="required" />
+						<!-- TODO: future - make sure username isn't already taken -->
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>How to Contact You:</legend>
+					<div class="formline">
+						<label for="hphone">Home Phone:</label> <input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" />
+						<label for="bphone">Work Phone:</label> <input type="text" name="bphone" id="bphone" placeholder="403-555-5555" />
+					</div>
+					<div class="formline">					
+						<label for="email">Email:</label> <input type="text" name="email" id="email" placeholder="sam.doe@email.com" required="required" />
+					</div>
+					<!-- TODO: validate email & phones -->
+				</fieldset>
+				<fieldset>
+					<legend>Where You Are:</legend><!-- @TODO: should these be required? -->
+					<div class="formline">	
+						<label for="addr1">Street Address:</label> <input type="text" name="addr1" id="addr1" />
+					</div>
+					<div class="formline">	
+						<label for="addr2">Address Line 2:</label> <input type="text" name="addr2" id="addr2" />
+					</div>
+					<div class="formline">	
+						<label for="city">City:</label> <input type="text" name="city" id="city" />
+						<label for="prov">Province:</label> <!-- @TODO: If required, Validate that they didn't leave it on "select a province" -->
+						<select name="prov" id="prov">
+							<option value="">Select a Province</option>
+							<option value="AB">Alberta</option>
+							<option value="BC">British Columbia</option>
+							<option value="MB">Manitoba</option>
+							<option value="NB">New Brunswick</option>
+							<option value="NL">Newfoundland &amp; Labrador</option>
+							<option value="NT">Northwest Territories</option>
+							<option value="NS">Nova Scotia</option>
+							<option value="NU">Nunavut</option>
+							<option value="ON">Ontario</option>
+							<option value="PE">Prince Edward Island</option>
+							<option value="QC">Quebec</option>
+							<option value="SK">Saskatchewan</option>
+							<option value="YT">Yukon</option>
+						</select>
+						<label for="postal">Postal Code:</label> <input type="text" name="postal" id="postal" placeholder="A1A 1A1" />
+						<!-- @TODO: validate postal code -->
+					</div>						
+				</fieldset>
+				<fieldset> <!-- @TODO: compare passwords, they must match -->
+					<legend>Create a Password:</legend>
+					<div class="formline">	
+						<label for="pw1">Password:</label> <input type="password" name="pw1" required="required" />
+					</div>
+					<div class="formline">	
+						<label for="pw2">Confirm Password:</label> <input type="password" name="pw2" required="required" />
+					</div>
+				</fieldset>
+				<div class="formline">
+					<label for="terms">I agree to the terms and conditions:</label> 
+					<input type="checkbox" id="terms" name="terms" value="y" required="required" />
+				</div>
+				<input type="submit" value="Create Account" /><input type="reset" value="Reset Form" />
+			</form>
 		</main>
 		<footer>
+			&copy; 2019 Travel Experts
 		</footer>
 	</body>
 </html>
