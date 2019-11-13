@@ -34,11 +34,43 @@ Primary Author: Tom Hollis
 			}
 			input{
 			}
+			[required="required"]{	
+				background-color: #ffe4e4;
+			}
 
 		</style>
 		<script><!-- Scripts for this page only -->
 			function confirmPress(action){
-				return window.confirm("Are you sure you're ready to " + action + " this form?");
+				var isOK = window.confirm("Are you sure you're ready to " + action + " this form?");
+				if(isOK && action=='submit'){
+					// when they want to submit the form, run various validation checks that HTML can't do
+					// if any validation problems, warn the user and make isOK false so form is not submitted
+
+					// make sure there's either a first or last name
+					var validation1 = document.getElementById('fname').value;
+					var	validation2 = document.getElementById('lname').value;
+					if((validation1 == null || validation1 == "") && (validation2 == null || validation2 == "")) {
+						window.alert("Please enter either a first name or a last name");
+						isOK = false;
+					}
+					
+					/* only use this if address is required
+					// make sure they've selected a province
+					validation1 = document.getElementById('prov').value;
+					if(validation1 == ""){
+						window.alert("Please select a province");
+						isOK = false;
+					} */
+
+					// make sure the passwords match
+					validation1 = document.getElementById('pw1').value;
+					validation2 = document.getElementById('pw2').value;
+					if(validation1 != validation2) {
+						window.alert("The passwords do not match, please enter your password again");
+						isOK = false;
+					}
+				}
+				return isOK;
 			}
 		</script>
 		<title>Travel Experts - Registration</title>
@@ -50,10 +82,11 @@ Primary Author: Tom Hollis
 		</header>
 		<!-- @TODO: Add nav to either header or here (CSS handled by the main.css file) -->
 		<main>
-			<form method="post" action="localhost/bouncer.php" target="_blank">
+			<form method="post" action="http://localhost/bouncer.php" target="_blank">
+			<!-- @TODO: remove target="_blank" when action is our node.js code -->
 				<fieldset>
 					<legend>What to Call You:</legend>
-					<div class="formline"><!-- @TODO: required names? what if single name, either first or last? -->
+					<div class="formline"><!-- @TODO: confirm whether both names are a business requirement -->
 						<label for="fname">First Name:</label> <input type="text" name="fname" id="fname" placeholder="Sam" />
 						<label for="lname">Last Name:</label> <input type="text" name="lname" id="lname" placeholder="Doe" />
 					</div>
@@ -64,7 +97,7 @@ Primary Author: Tom Hollis
 				</fieldset>
 				<fieldset>
 					<legend>How to Contact You:</legend>
-					<div class="formline"><!-- @TODO: strip out all non-digit characters from phone numbers before storing -->
+					<div class="formline"><!-- @TODO: server side, strip out all non-digit characters from phone numbers before storing -->
 						<label for="hphone">Home Phone:</label> 
 						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}" title="Please enter a valid North American phone number" />
 						<label for="bphone">Work Phone:</label> 
@@ -77,7 +110,7 @@ Primary Author: Tom Hollis
 					</div>
 				</fieldset>
 				<fieldset>
-					<legend>Where You Are:</legend><!-- @TODO: should these be required? -->
+					<legend>Where You Are:</legend><!-- @TODO: should these be required? what does the business say? -->
 					<div class="formline">	
 						<label for="addr1">Street Address:</label> <input type="text" name="addr1" id="addr1" />
 					</div>
@@ -111,18 +144,18 @@ Primary Author: Tom Hollis
 					<legend>Create a Password:</legend>
 					<div class="formline">	
 						<label for="pw1">Password:</label> 
-						<input type="password" name="pw1" required="required" />
+						<input type="password" name="pw1" id="pw1" required="required" />
 					</div>
 					<div class="formline">	
 						<label for="pw2">Confirm Password:</label> 
-						<input type="password" name="pw2" required="required" />
+						<input type="password" name="pw2" id="pw2" required="required" />
 					</div>
 				</fieldset>
 				<div class="formline">
 					<label for="terms">I agree to the terms and conditions:</label> 
 					<input type="checkbox" id="terms" name="terms" value="y" required="required" />
 				</div>
-				<input type="submit" value="Create Account" onclick="return confirmPress('submit')" /><input type="reset" value="Reset Form" onclick="return confirmPress('reset')" />
+				<input type="submit" value="Create Account" onclick="return confirmPress('submit');" /><input type="reset" value="Reset Form" onclick="return confirmPress('reset');" />
 			</form>
 		</main>
 		<footer><!-- CSS handled by main.css -->
