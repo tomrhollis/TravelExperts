@@ -18,7 +18,9 @@ Primary Author: Tom Hollis
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		-->
 		
-		<!--<link rel="stylesheet" href="main.css" /> MAIN STYLESHEET -->
+		<!-- <link rel="stylesheet" href="main.css" /> MAIN STYLESHEET -->
+		<!-- <script src="main.js"></script> MAIN JS FOR SITE-WIDE STYLE EFFECTS -->
+		
 		<style><!-- @TODO: make it all pretty -->
 			form{
 			}
@@ -26,19 +28,27 @@ Primary Author: Tom Hollis
 			}
 			legend{
 			}
+			.formline{				
+			}
 			label{
 			}
 			input{
 			}
-			.formline{				
-			}
+
 		</style>
+		<script><!-- Scripts for this page only -->
+			function confirmPress(action){
+				return window.confirm("Are you sure you're ready to " + action + " this form?");
+			}
+		</script>
 		<title>Travel Experts - Registration</title>
 	</head>
 	
 	<body>
 		<header>
+			<!-- @TODO: Add in agreed-on standard header (CSS handled by the main.css file) -->
 		</header>
+		<!-- @TODO: Add nav to either header or here (CSS handled by the main.css file) -->
 		<main>
 			<form method="post" action="localhost/bouncer.php" target="_blank">
 				<fieldset>
@@ -49,19 +59,22 @@ Primary Author: Tom Hollis
 					</div>
 					<div class="formline">
 						<label for="uname">Username:</label> <input type="text" name="uname" id="uname" placeholder="SamDoe1234" required="required" />
-						<!-- TODO: future - make sure username isn't already taken -->
+						<!-- @TODO: future - make sure username isn't already taken -->
 					</div>
 				</fieldset>
 				<fieldset>
 					<legend>How to Contact You:</legend>
-					<div class="formline">
-						<label for="hphone">Home Phone:</label> <input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" />
-						<label for="bphone">Work Phone:</label> <input type="text" name="bphone" id="bphone" placeholder="403-555-5555" />
+					<div class="formline"><!-- @TODO: validate phones -->
+						<label for="hphone">Home Phone:</label> 
+						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" />
+						<label for="bphone">Work Phone:</label> 
+						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555" />
 					</div>
 					<div class="formline">					
-						<label for="email">Email:</label> <input type="text" name="email" id="email" placeholder="sam.doe@email.com" required="required" />
+						<label for="email">Email:</label> 
+						<input type="text" name="email" id="email" placeholder="sam.doe@email.com" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+							<!-- email regexp pattern from W3Schools -->
 					</div>
-					<!-- TODO: validate email & phones -->
 				</fieldset>
 				<fieldset>
 					<legend>Where You Are:</legend><!-- @TODO: should these be required? -->
@@ -97,20 +110,22 @@ Primary Author: Tom Hollis
 				<fieldset> <!-- @TODO: compare passwords, they must match -->
 					<legend>Create a Password:</legend>
 					<div class="formline">	
-						<label for="pw1">Password:</label> <input type="password" name="pw1" required="required" />
+						<label for="pw1">Password:</label> 
+						<input type="password" name="pw1" required="required" />
 					</div>
 					<div class="formline">	
-						<label for="pw2">Confirm Password:</label> <input type="password" name="pw2" required="required" />
+						<label for="pw2">Confirm Password:</label> 
+						<input type="password" name="pw2" required="required" />
 					</div>
 				</fieldset>
 				<div class="formline">
 					<label for="terms">I agree to the terms and conditions:</label> 
 					<input type="checkbox" id="terms" name="terms" value="y" required="required" />
 				</div>
-				<input type="submit" value="Create Account" /><input type="reset" value="Reset Form" />
+				<input type="submit" value="Create Account" onclick="return confirmPress('submit')" /><input type="reset" value="Reset Form" onclick="return confirmPress('reset')" />
 			</form>
 		</main>
-		<footer>
+		<footer><!-- CSS handled by main.css -->
 			&copy; 2019 Travel Experts
 		</footer>
 	</body>
