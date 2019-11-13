@@ -97,11 +97,11 @@ Primary Author: Tom Hollis
 				</fieldset>
 				<fieldset>
 					<legend>How to Contact You:</legend>
-					<div class="formline"><!-- @TODO: server side, strip out all non-digit characters from phone numbers before storing -->
+					<div class="formline"><!-- @TODO: server side, store all phone numbers in a consistent way. Note that work phone may have an extension. -->
 						<label for="hphone">Home Phone:</label> 
 						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}" title="Please enter a valid North American phone number" />
 						<label for="bphone">Work Phone:</label> 
-						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}" title="Please enter a valid North American phone number" />
+						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}}( ?e?xt?\.? ?[0-9]{0,5})?" title="Please enter a valid North American phone number" />
 					</div>
 					<div class="formline">					
 						<label for="email">Email:</label> 
