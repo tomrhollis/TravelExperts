@@ -53,7 +53,7 @@ Primary Author: Tom Hollis
 			<form method="post" action="localhost/bouncer.php" target="_blank">
 				<fieldset>
 					<legend>What to Call You:</legend>
-					<div class="formline">
+					<div class="formline"><!-- @TODO: required names? what if single name, either first or last? -->
 						<label for="fname">First Name:</label> <input type="text" name="fname" id="fname" placeholder="Sam" />
 						<label for="lname">Last Name:</label> <input type="text" name="lname" id="lname" placeholder="Doe" />
 					</div>
@@ -64,15 +64,15 @@ Primary Author: Tom Hollis
 				</fieldset>
 				<fieldset>
 					<legend>How to Contact You:</legend>
-					<div class="formline"><!-- @TODO: validate phones -->
+					<div class="formline"><!-- @TODO: strip out all non-digit characters from phone numbers before storing -->
 						<label for="hphone">Home Phone:</label> 
-						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" />
+						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}" title="Please enter a valid North American phone number" />
 						<label for="bphone">Work Phone:</label> 
-						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555" />
+						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555" pattern="1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}" title="Please enter a valid North American phone number" />
 					</div>
 					<div class="formline">					
 						<label for="email">Email:</label> 
-						<input type="text" name="email" id="email" placeholder="sam.doe@email.com" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+						<input type="text" name="email" id="email" placeholder="sam.doe@email.com" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
 							<!-- email regexp pattern from W3Schools -->
 					</div>
 				</fieldset>
@@ -103,11 +103,11 @@ Primary Author: Tom Hollis
 							<option value="SK">Saskatchewan</option>
 							<option value="YT">Yukon</option>
 						</select>
-						<label for="postal">Postal Code:</label> <input type="text" name="postal" id="postal" placeholder="A1A 1A1" />
-						<!-- @TODO: validate postal code -->
+						<label for="postal">Postal Code:</label> 
+						<input type="text" name="postal" id="postal" placeholder="A1A 1A1" pattern="[a-zA-Z][0-9][a-zA-Z] ?[0-9][a-zA-Z][0-9]" title="Please enter a valid Canadian postal code" />
 					</div>						
 				</fieldset>
-				<fieldset> <!-- @TODO: compare passwords, they must match -->
+				<fieldset> <!-- @TODO: compare passwords, they must match. Any pattern requirements? -->
 					<legend>Create a Password:</legend>
 					<div class="formline">	
 						<label for="pw1">Password:</label> 
