@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
-		<title>Contact us</title>
+		<title>Contact Us</title>
 	</head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+		  padding: 25px;
+		  background-color: white;
+		  color: black;
+		  font-size: 18px;
+		}
+
+		.dark-mode {
+		  background-color: black;
+		  color: white;
+		}
+	</style>
+	<script>
+		function lightdark() {
+		var element = document.body;
+		element.classList.toggle("dark-mode");
+		}
+	</script>
+	<nav>
+		<button onclick="lightdark()">Toggle dark mode</button>
+	</nav>
 	<body>
 	
 		<center><h1>Travel Experts</h1></center>
 	<hr>
-	
+		<center><h2>Contact Us</h2></center>
 	<div>
 		<fieldset style="border-color: red;">
 			<legend><p>Agents</p></legend>
