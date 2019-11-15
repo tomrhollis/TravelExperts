@@ -115,7 +115,8 @@ Primary Author: Tom Hollis
 					</div>
 					<div class="formline">
 						<label for="uname">Username:</label> 
-						<input type="text" name="uname" id="uname" placeholder="SamDoe1234" required="required" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
+						<input type="text" name="uname" id="uname" placeholder="SamDoe1234" required="required" 
+								onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 						<!-- @TODO: future - make sure username isn't already taken -->
 					</div>
@@ -124,11 +125,11 @@ Primary Author: Tom Hollis
 					<legend>How to Contact You:</legend>
 					<div class="formline"><!-- @TODO: server side, store all phone numbers in a consistent way. Note that work phone may have an extension. -->
 						<label for="hphone">Home Phone:</label> 
-						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" pattern="^1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}$" 
+						<input type="text" name="hphone" id="hphone" placeholder="587-555-5555" required="required" pattern="^1?\D*\d{3}\D*\d{3}\D*\d{4}$" 
 								title="Please enter a valid North American phone number" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 						<label for="bphone">Work Phone:</label> 
-						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555 x1234" pattern="^1?\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4}}( ?e?xt?\.? ?[0-9]{0,5})?$" 
+						<input type="text" name="bphone" id="bphone" placeholder="403-555-5555 x1234" pattern="^1?\D*\d{3}\D*\d{3}\D*\d{4}}( ?e?xt?\.? ?\d{0,5})?$" 
 								title="Please enter a valid North American phone number" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 					</div>
@@ -143,11 +144,13 @@ Primary Author: Tom Hollis
 				<fieldset>
 					<legend>Where You Are:</legend><!-- @TODO: should these be required? what does the business say? -->
 					<div class="formline">	
-						<label for="addr1">Street Address:</label> <input type="text" name="addr1" id="addr1" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
+						<label for="addr1">Street Address:</label> <input type="text" name="addr1" id="addr1" 
+								onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 					</div>
 					<div class="formline">	
-						<label for="addr2">Address Line 2:</label> <input type="text" name="addr2" id="addr2" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
+						<label for="addr2">Address Line 2:</label> <input type="text" name="addr2" id="addr2" 
+								onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 					</div>
 					<div class="formline">	
@@ -196,19 +199,19 @@ Primary Author: Tom Hollis
 				<input type="submit" value="Create Account" onclick="return confirmPress('submit');" />
 				<input type="reset" value="Reset Form" onclick="return confirmPress('reset');" />
 			</form>
-			<aside>
-				<p id="fnamedesc">[fnamedesc]</p>
-				<p id="lnamedesc">[lnamedesc]</p>
-				<p id="unamedesc">[unamedesc]</p>
-				<p id="hphonedesc">[hphonedesc]</p>
-				<p id="bphonedesc">[bphonedesc]</p>
-				<p id="emaildesc">[emaildesc]</p>
-				<p id="addr1desc">[addr1desc]</p>
-				<p id="addr2desc">[addr2desc]</p>
-				<p id="citydesc">[citydesc]</p>
-				<p id="postaldesc">[postaldesc]</p>
-				<p id="pw1desc">[pw1desc]</p>
-				<p id="pw2desc">[pw2desc]</p>
+			<aside><!-- @TODO: username & password requirements? ALSO: change this to a single tag that swaps out the text -->
+				<p id="fnamedesc">First name or given name. Either this or a last name is required.</p>
+				<p id="lnamedesc">Last name or family name.  Either this or a first name is required.</p>
+				<p id="unamedesc">User name: [any requirements?]</p>
+				<p id="hphonedesc">Your home phone number - North American numbers only as in 555-555-5555</p>
+				<p id="bphonedesc">Your work phone number - North American numbers only as in 555-555-5555 x5555</p>
+				<p id="emaildesc">Your email address, in the format name@domain.com</p>
+				<p id="addr1desc">Your street address</p>
+				<p id="addr2desc">Any additional address information that might be needed</p>
+				<p id="citydesc">The city where you live, within Canada</p>
+				<p id="postaldesc">Your Canadian postal code, in the format A1A 1A1</p>
+				<p id="pw1desc">Your password: [password requirements]</p>
+				<p id="pw2desc">Confirm your password: it must match the one above</p>
 			</aside>
 		</main>
 		<footer><!-- CSS handled by main.css -->
