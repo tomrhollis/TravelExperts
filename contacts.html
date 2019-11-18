@@ -15,13 +15,30 @@
 		.dark-mode {
 		  background-color: black;
 		  color: white;
-
+		}
+		
+		#field1 {
+			background-color:
+			
+		}
+		
+		#clock {
+			float: right;
+		}
+		
 	</style>
 	<script>
 		function lightdark() {
 		var element = document.body;
 		element.classList.toggle("dark-mode");
 		}
+				updateClock = function(){
+			
+				var myDate = new Date();
+				var dateString = myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
+				document.getElementById("clock").innerHTML = dateString;	
+				}
+				var	timer = setInterval(updateClock, 1000);
 	</script>
 	<nav>
 		<a href="contacts.html">Contact Us</a>&nbsp; |
@@ -32,11 +49,13 @@
 	<body>
 
 		<center><h1>Travel Experts</h1></center>
+		<h3 id="clock"></h3>
 	<hr>
 			<button onclick="lightdark()">Toggle dark mode</button><center><h2>Contact Us</h2></center>
+			
 	<div>
 		<fieldset style="border-color: red;">
-			<legend><p>Agents</p></legend>
+			<legend><h3><p>Agents</p></h3></legend>
 				<details>
 			<summary>Business Hours</summary>
 			<p>Monday - Thursday  9:00 am to 6:00 pm</p>
@@ -59,8 +78,8 @@
 		</fieldset>
 		
 	<div>
-		<fieldset style="border-color: blue;">
-			<legend><p>Customer Service</p></legend>
+		<fieldset id="field1" style="border-color: blue;">
+			<legend><h3><p>Customer Service</p></h3></legend>
 				<details>
 			<summary>Business Hours</summary>
 			<p>Monday - Thursday  8:00 am to 6:00 pm</p>
@@ -84,7 +103,7 @@
 		
 	<div>
 		<fieldset style="border-color: green;">
-			<legend><p>Head Office</p></legend>
+			<legend><h3><p>Head Office</p></h3></legend>
 		<details>
 			<summary>Business Hours</summary>
 			<p>Monday - Thursday  9:00 am to 6:00 pm</p>
