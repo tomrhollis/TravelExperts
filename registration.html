@@ -91,6 +91,9 @@ Primary Author: Tom Hollis
 				return isOK;
 			}
 			
+		// @TODO: onblur to fix data formatting on phone number and postal code
+			
+			
 		</script>
 		<title>Travel Experts - Registration</title>
 	</head>
@@ -174,7 +177,8 @@ Primary Author: Tom Hollis
 							<option value="YT">Yukon</option>
 						</select>
 						<label for="postal">Postal Code:</label> 
-						<input type="text" name="postal" id="postal" placeholder="A1A 1A1" pattern="^[a-zA-Z][0-9][a-zA-Z] ?[0-9][a-zA-Z][0-9]$" 
+						<input type="text" name="postal" id="postal" placeholder="A1A 1A1" 
+								pattern="^[abceghj-nprstvxyABCEGHJ-NPRSTVXY]\d[abceghj-nprstv-zABCEGHJ-NPRSTV-Z] ?\d[abceghj-nprstv-zABCEGHJ-NPRSTV-Z]\d$" 
 								title="Please enter a valid Canadian postal code" onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
 								onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 					</div>						
