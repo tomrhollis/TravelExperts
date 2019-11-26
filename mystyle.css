@@ -1,0 +1,90 @@
+    body {
+      background-image: url("media/island.jpg");
+
+      color: black;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 300;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 500;
+    }
+
+    .topnav {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(240, 255, 255, 0.336);
+      
+      
+    }
+    #mysection {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .tab-pane  {
+      /* background-color: rgba(255, 255, 255, 0.925); */
+      color: black;
+    }
+
+    .tab-pane a.active {
+      background-color: #e07ae94d;
+      color: rgba(255, 255, 255, 0);
+    }
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .topnav a.active {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .tab-menues {
+      font-size: 17px;
+      /* padding: 5px 15px; */
+      background-color: #ecc8f5;
+      opacity: 1;
+      color: azure;
+      
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%; 
+        margin-left: -250px;
+        margin-top: -100px;
+        
+
+        
+
+    }
+
+    .tabs-content {
+      font-size: 17px;
+    }
+
+    .copyright {
+            text-align: center;
+            bottom: -20vw;
+        }
