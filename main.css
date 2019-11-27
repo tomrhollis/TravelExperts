@@ -93,13 +93,15 @@ header > h1, .header > h1 {
  }
 
  article{
-	background-color: #eeeeee;
+	background-color: rgba(238, 238, 238, 0.7);
 	padding: 1%;
 	border: dotted;
 	border-width: 1px;
 	border-color: #dddddd;
+	border-radius: 20px;
 	text-align: justify;
 	margin-bottom: 1%;
+	margin-top: 1%; 
 }
 
 .artitle{
@@ -107,4 +109,10 @@ header > h1, .header > h1 {
 	border-color: #dddddd;
 	border-width: 1px;
 	margin: 1%;
+}
+
+footer {
+	padding: 1%;
+	padding-bottom: 0.5%;
+	color:rgb(255, 255, 255);
 }
