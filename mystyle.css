@@ -84,7 +84,30 @@
       font-size: 17px;
     }
 
-    .copyright {
-            text-align: center;
-            bottom: -20vw;
-        }
+
+    article{
+      background-color: rgba(238, 238, 238, 0.7);
+      padding: 1%;
+      border: dotted;
+      border-width: 1px;
+      border-color: #dddddd;
+      border-radius: 20px;
+      text-align: justify;
+      margin-bottom: 1%;
+      margin-top: 1%; 
+    }
+    
+    .artitle{
+      border-bottom: dotted;
+      border-color: #dddddd;
+      border-width: 1px;
+      margin: 1%;
+    }
+    
+    footer, .copyright {
+      padding: 1%;
+      padding-bottom: 0.5%;
+      color:rgb(255, 255, 255);
+      text-align: center;
+      bottom: -20vw;
+    }
