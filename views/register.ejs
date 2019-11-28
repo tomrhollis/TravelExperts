@@ -1,6 +1,15 @@
+<!--
+	Travel Experts: The Website
+	Registration Page
+	
+	Group: Ivan, Muhammad, Steven, Tom
+	Page Author: Tom Hollis
+
+	GLOBAL TODO: finish or clear all other todos
+-->
+
 <!DOCTYPE html>
 <html lang="en">
-	
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,131 +19,22 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		
 		<link rel="stylesheet" href="mystyle.css" />
-		
-		<title>Travel Experts</title>
-		
-		 <!-- Scripts for this page only -->
-		<script>
-			function confirmPress(action){
-				var isOK = window.confirm("Are you sure you're ready to " + action + " this form?");
-				if(isOK && action=='submit'){
-					// when they want to submit the form, run various validation checks that HTML can't do
-					// if any validation problems, warn the user and make isOK false so form is not submitted
-					var messages =""
-					
-					// make sure there's either a first or last name
-					var validation1 = document.getElementById('fname').value;
-					var	validation2 = document.getElementById('lname').value;
-					if((validation1 == null || validation1 == "") && (validation2 == null || validation2 == "")) {
-						messages += "Please enter either a first name or a last name\n";
-					}
-					
-					/* only use this if address is required
-					// make sure they've selected a province
-					validation1 = document.getElementById('prov').value;
-					if(validation1 == ""){
-						window.alert("Please select a province");
-						isOK = false;
-					} */
+		<link rel="stylesheet" href="register.css" />
 
-					// make sure the passwords match
-					validation1 = document.getElementById('pw1').value;
-					validation2 = document.getElementById('pw2').value;
-					if(validation1 != validation2) {
-						messages += "The passwords do not match, please enter your password again\n";
-					}
-					
-					// display messages if there are any, and cancel form submission
-					if (messages != ""){
-						window.alert(messages);
-						isOK = false;
-					}
+		<title>Travel Experts</title>	
 
-				}
-				return isOK;
-			}
+		<!-- Scripts for this page only -->
+		<script src="register.js"></script>
 			
-		// @TODO: onblur to fix data formatting on phone number and postal code			
-		</script>
-		<style>
-			aside {
-				text-align: center;
-			}
-			aside > p{ 
-				visibility: hidden;
-				float: left;
-				clear: left;
-				margin: 0px;
-				width: 90%;
-				padding-left: 2%;
-				padding-right: 2%;
-				border: solid;
-				border-width: 1px;
-				background-color: rgba(255, 255, 255, 0.5);
-			}
-			fieldset{
-				padding-left: 1%;
-				padding-bottom: 1%;
-				border-bottom: dotted;
-				border-color: #dddddd;
-				border-width: 1px;
-				margin: 1%;
-			}
-			legend{
-				position: relative;
-				left: -1%;
-			}			
-			.formline{				
-				vertical-align: center;
-			}
-			label{
-				width: 12%;
-				padding-right: 1%;
-				text-align: right;
-			}
-			label.terms{
-				width: 22%;
-			}
-			input{
-				width: 18%;
-				background-color: #fefefe;
-				padding-left: 3px;
-			}
-			input#terms{
-				width: 2%;
-			}
-			[required="required"]{	
-				background-color: #fee0fe;
-			}
-
-		</style>
-		<script src="navBar.js"></script>	
+		<!-- @TODO: onblur to fix data formatting on phone number and postal code		
+		     @TODO: implement bootstrap as much as possible	-->
 	</head>
 	
 	<body class="container-fluid">
-		<section></section>
-	<!--	<header id="header row">
-			<h1>
-				<a><img
-					src="media/logo1.png"
-					title="our head office"
-					alt="Travel Agency Logo"
-					width="70"
-					height="70"
-				/></a>
-				Welcome to Travel Experts
-			</h1>
-		</header>
-		
-		<nav class="topnav row">
-			<a href="Exercise1.html">Home</a>
-			<a href="contact.html">Contact Us</a>
-			<a href="register.html">Create an Account</a>
-			<a href="vacationPackages.html">Vacation Packages</a>
-			<a href="http://hotels.com">Hotels</a> <br /><br />
-		</nav>
--->
+		<%- include('navbar'); -%>
 		<main class="row">
+			<!-- @TODO: change this to a single div that gets placed near (but NOT over) the focused field
+						can the "article" tag be col-8 and still float in the middle with 2 col spacing on the sides? -->
 			<aside class="col-2">
 				<p id="fnamedesc">First name or given name. Either this or a last name is required.</p>
 				<p id="lnamedesc">Last name or family name.  Either this or a first name is required.</p>
@@ -152,8 +52,7 @@
 
 			<article class="col-8">
 				<h2 class="artitle">Register for Service</h2>
-				<form method="post" action="http://localhost/bouncer.php" target="_blank">
-				<!-- @TODO: remove target="_blank" when action is our node.js code -->
+				<form method="post" action="http://localhost:8027/posttest">
 					<fieldset>
 						<legend>What to Call You:</legend>
 						<div class="formline"><!-- @TODO: confirm whether both names are a business requirement -->

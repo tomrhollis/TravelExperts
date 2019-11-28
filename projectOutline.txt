@@ -39,26 +39,28 @@ The goal of the presentation is to:
 
 
 Statement of Goals:
- The Travel Experts company needs to enter the online age. To get them there, we will create a functional website using their database where they can see the possibilities for their clients to navigate their product offerings, register, and place orders on one easy-to-use graphical interface.
+ The Travel Experts company needs to enter the online age. To get them there, we will create a functional website using their database where they can see the possibilities for their clients to navigate their product offerings, register, and place orders on one easy-to-use and responsive graphical interface.
 
 List of Objectives:
  * Create a web-based user interface for clients to navigate and request products with 4 distinct pages for different business categories
  * Serve the webpage using an offsite server with 99.99% uptime
  * Import their existing database of clients, agents, and products to our server and display its information dynamically
- * Save customer input (registrations, vacation package purchases) in the database
+ * Save validated customer input (registrations, vacation package purchases) in the database
  * Stretch Goal: Create a back-end web portal where the client can view all of their customers' input
 
  * For all: by December 6th
 
 Assumptions:
  - The current hardware is out of date and the client will upgrade, but needs advice on how
- - The website will be hosted offsite
+ - The website will be hosted offsite on a reliable server with backups and high uptime
  - The current database already exists and is usable
+ - The users of the website are able to provide all the information required on the registration page
 
 
 Contingencies:
- - If the client prefers the website to be hosted onsite, the deadline date will be delayed until the hardware is upgraded properly
+ - If the client prefers the website to be hosted onsite, the delivery date will be delayed until server hardware is procured and installed
  - If the database is not usable, we will make simple and necessary changes to make it usable, but no more than that.
+ - If a user is unable to provide all the required information, there will be a way of directing them to alternate forms of contact
 
 Scope:
  - In
@@ -68,3 +70,5 @@ Scope:
  - Out
     Procurement and setup of new hardware
     Database cleanup or reorganization that don't affect website functionality
+    Customer management system
+    Maintenance or changes 1 month after deployment
