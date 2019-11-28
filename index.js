@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-//const fs = require('fs');
-const moment = require("moment");
+const moment = require('moment');
+const sequelize = require('sequelize');
+const db = new sequelize('travelexperts', 'tombot', '834sopsid', {
+    host: 'localhost', // should this be 'db'?
+    dialect: 'mysql'
+});
 var port = 8027;
 
 function sendToLog(message) {
@@ -17,7 +21,8 @@ app.listen(port, () => {
 //STATIC PAGES
 //app.use(express.static("views", {extensions: ["html"]}));
 app.use(express.static("public"));
-app.use(express.static("media"));
+app.use(express.static("public/media"));
+
 
 //DYNAMIC PAGES
 app.set("views", path.join(__dirname, "views"));
