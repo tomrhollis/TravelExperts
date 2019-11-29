@@ -39,13 +39,10 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.get('/', (req, res) => {
-    customers.findOne().then((customers) => {
-        res.render('test', {user: JSON.stringify(customer)});
-    });
-     //    res.render('index', {});
+    res.render('vacationPackagesUPDATED', {});
 });
 app.get('/index.html', (req, res) => {
-    res.render('index', {});
+    res.render('vacationPackagesUPDATED', {});
 });
 app.get('/register.html', (req, res) => {
     res.render("register", {});
@@ -54,7 +51,7 @@ app.get('/contact.html', (req, res) => {
     res.render("contact", {});
 });
 app.get('/vacationpackages.html', (req, res) => {
-    res.render("vacationPackagesUPDATED", {});
+    res.render("vacationPackages", {});
 });
 
 //BEGIN FORM PROCESSING SECTION
@@ -63,7 +60,7 @@ app.post("/regform", (req, res) => {
     sendToLog(req.body);
     customers.create(req.body).then(function (customers) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
         if (customers) {
-            res.redirect("/vacationpackages.html");
+            res.redirect("/");
         } else {
             res.status(400).send('<!DOCTYPE html><html lang="en"><body><h1>400: Database Error</h1></body></html>');
         }
