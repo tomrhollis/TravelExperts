@@ -57,17 +57,14 @@ app.get('/vacationpackages.html', (req, res) => {
 //BEGIN FORM PROCESSING SECTION
 app.use(express.urlencoded({extended: true}));
 app.post("/regform", (req, res) => {
-    sendToLog(req.body);
     customers.create(req.body).then(function (customers) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
-        if (customers) {
+        if (customers) { // if successful, send back to the main page for now
             res.redirect("/");
         } else {
             res.status(400).send('<!DOCTYPE html><html lang="en"><body><h1>400: Database Error</h1></body></html>');
         }
-    });
-    // push to database
-        // error handling or...
-        // send back to packages
+   });
+
 });
 //END FORM PROCESSING SECTION
 
