@@ -2,7 +2,7 @@
 // Inspired/informed by https://medium.com/@paigen11/sequelize-the-orm-for-sql-databases-with-nodejs-daa7c6d5aca3
 const sequelize = require('sequelize');
 
-exports = (db) => { 
+exports.model = (db) => { 
     return db.define('customers', {
         CustomerId: {
             type: sequelize.INTEGER,
@@ -12,52 +12,52 @@ exports = (db) => {
         CustFirstName: { 
             type: sequelize.STRING,
             allowNull: false
-        }
+        },
         CustLastName: {
             type: sequelize.STRING,
             allowNull: false
-        }
-        CustAddress {
+        },
+        CustAddress: {
             type: sequelize.STRING,
             allowNull: false
-        }
-        CustCity {
+        },
+        CustCity: {
             type: sequelize.STRING,
             allowNull: false           
-        }
-        CustProv {
+        },
+        CustProv: {
             type: sequelize.STRING,
             allowNull: false           
-        }
-        CustCountry {
+        },
+        CustPostal: {
+            type: sequelize.STRING,
+            allowNull: false           
+        },
+        CustCountry: {
             type: sequelize.STRING,
             allowNull: true          
-        }
-        CustHomePhone {
+        },
+        CustHomePhone: {
             type: sequelize.STRING,
             allowNull: true           
-        }
-        CustBusPhone {
+        },
+        CustBusPhone: {
             type: sequelize.STRING,
             allowNull: false           
-        }
-        CustEmail {
+        },
+        CustEmail: {
             type: sequelize.STRING,
             allowNull: false           
-        }
-        AgentId {
+        },
+        AgentId: {
             type: sequelize.INTEGER,
             allowNull: true           
-        }
-        CustCity {
-            type: sequelize.STRING,
-            allowNull: false           
-        }
-        CustUsername {
+        },
+        CustUsername: {
             type: sequelize.STRING,
             allowNull: true          
-        }
-        CustPassword {
+        },
+        CustPassword: {
             type: sequelize.STRING,
             allowNull: true           
         }
