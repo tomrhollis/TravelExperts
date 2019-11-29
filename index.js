@@ -33,7 +33,6 @@ app.listen(port, () => {
 app.use(express.static("public"));
 app.use(express.static("public/media"));
 
-
 //DYNAMIC PAGES
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
