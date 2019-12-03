@@ -25,8 +25,6 @@
 
 		<!-- Scripts for this page only -->
 		<script src="httpreq.js"></script>
-		<script src="register.js"></script>
-
 			
 		<!-- @TODO: onblur to fix data formatting on phone number and postal code		
 		     @TODO: implement bootstrap as much as possible	-->
@@ -68,9 +66,9 @@
 						</div>
 						<div class="formline">
 							<label for="CustUsername">Username:</label> 
-							<input type="text" name="CustUsername" id="CustUsername" placeholder="SamDoe1234" required="required"
+							<input type="text" name="CustUsername" id="CustUsername" placeholder="SamDoe1234" required="required" 
 									onfocus="document.getElementById(this.id + 'desc').style.visibility = 'visible';" 
-									onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';checkUsername();" />
+									onblur="document.getElementById(this.id + 'desc').style.visibility = 'hidden';" />
 							<!-- @TODO: future - make sure username isn't already taken -->
 						</div>
 					</fieldset>

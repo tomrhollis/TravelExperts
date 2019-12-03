@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const moment = require('moment');
 const sequelize = require('sequelize');
-const db = new sequelize('travelexperts', 'tombot', '834sopsid', {
+const db = new sequelize('travelexperts', 'tombot', 'password', {
     host: 'localhost', 
     dialect: 'mysql',
     logging: sendToLog, // use the logging function below instead of console.log
@@ -63,7 +63,15 @@ app.post("/regform", (req, res) => {
             res.status(400).send('<!DOCTYPE html><html lang="en"><body><h1>400: Database Error</h1></body></html>');
         }
    });
+});
 
+
+app.post('/checkUsername', (req, res) => {
+    sendToLog("called checkUsername");
+    customers.count({where: {'CustUsername': req.body.CustUsername}}).then(function(c) {
+        sendToLog("Found " + c + "identical usernames");
+        res.status(200).send(c);
+    });
 });
 //END FORM PROCESSING SECTION
 

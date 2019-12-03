@@ -1,10 +1,14 @@
 Next:
 
-1) Make sure the username doesn't exist
-2) Login page - check if username exists & password is good. if so say hi & go back to packages. if not go to registration
-3) bootstrapify
-4) revert/remove EJS
+1) Make sure the selected username doesn't exist --> XMLHTTPRequest
+
+IN THE MIDDLE OF: getting it to call the request to get the username count. Getting node errors.
+
+
+
+
+2) How easy are sessions?
+3) Login page - check if username exists & password is good. if so say hi & go back to packages. if not go to registration
+4) bootstrapify
 5) fix or remove tooltips
 6) comments
-
-(pay rent)

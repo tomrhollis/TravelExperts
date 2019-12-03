@@ -14,10 +14,18 @@ function confirmPress(action){
         
         // display messages if there are any, and cancel form submission
         if (messages != ""){
-            window.alert(messages);
             isOK = false;
+            window.alert(messages);            
         }
-
     }
     return isOK;
+}
+
+function checkUsername(){
+    requestUserCount("CustUsername").then((c)=>{
+        if (c>0){
+            window.alert("That username is already in use. Please choose a new username");
+            document.getElementById('CustUsername').value = "";
+        }
+    });
 }
