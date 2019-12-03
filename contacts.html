@@ -1,104 +1,66 @@
 <!DOCTYPE html>
+<!-- created by Ivan Lo-->
 <html>
 	<head>
 		<title>Contact Us</title>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+		rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="navBar.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		body {
-		  padding: 25px;
-		  background-color: white;
-		  color: black;
-		  font-size: 18px;
-		}
 
-		.dark-mode {
-		  background-color: black;
-		  color: white;
-		}
-		
-		#clock {
-			float: right;
-		}
-		body {
-                background-image: url("cloud.jpg");
-        }
-		
-	</style>
-	<script>
-		function lightdark() {
-		var element = document.body;
-		element.classList.toggle("dark-mode");
-		}
-				updateClock = function(){
-			
-				var myDate = new Date();
-				var dateString = myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds();
-				document.getElementById("clock").innerHTML = dateString;	
-				}
-				var	timer = setInterval(updateClock, 1000);
-	</script>
-	<nav>
-		<a href="contacts.html">Contact Us</a>&nbsp; |
-		<a href="register.html">Register</a>&nbsp; |
-		<a href="main.html">Main Page</a> |
-
-	</nav>
 	<body id="body1">
-
+<section></section>
 		<center><h1>Travel Experts</h1></center>
-		<h3 id="clock"></h3>
-	<hr>
-			<button onclick="lightdark()">Toggle dark mode</button><center><h2>Contact Us</h2></center><br />
-			
+				
 
 <!-- Modal for Contact Form -->
 	<div class="modal fade" id="modalContactForm">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
 		<div class="modal-header text-center">
-		  <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+		  <h4 class="modal-title">Send Us a Message!</h4>
 		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		  </button>
 		</div>
+
 		<div class="modal-body mx-3">
-		  <div class="md-form mb-5">
-			<i class="fas fa-user prefix grey-text"></i>
-			<input type="text" id="modalname" class="form-control validate">
+		  <div class="modename">
+			<input type="text" id="modalname" class="form-control">
 			<label data-error="wrong" data-success="right" for="modalname">Your name</label>
 		  </div>
   
-		  <div class="md-form mb-5">
-			<i class="fas fa-envelope prefix grey-text"></i>
-			<input type="email" id="modalemail" class="form-control validate">
+		  <div class="modemail">
+			<input type="email" id="modalemail" class="form-control">
 			<label data-error="wrong" data-success="right" for="modalemail">Your email</label>
 		  </div>
   
-		  <div class="md-form mb-5">
-			<i class="fas fa-tag prefix grey-text"></i>
-			<input type="text" id="modalsub" class="form-control validate">
-			<label data-error="wrong" data-success="right" for="modalsub">Subject</label>
-		  </div>
-  
 		  <div class="md-form">
-			<i class="fas fa-pencil prefix grey-text"></i>
-			<textarea type="text" id="modalmess" class="md-textarea form-control" rows="4"></textarea>
+			<textarea type="text" id="modalmess" class="form-control" rows="4"></textarea>
 			<label data-error="wrong" data-success="right" for="modalmess">Your message</label>
 		  </div>
   
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" onclick="return confirm('Continue the Submission?');">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+		  <button type="button" class="btn btn-secondary" onclick="return confirm('Continue the Submission?');">Send</button>
 		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		</div>
 	  </div>
 	</div>
   </div>
+  
   <!-- Button modal -->
   <div class="text-center">
-	  <h3>General Inquiries</h3>
-	<button type="button" class="btn btn-primary" onclick="location.href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Contact Here!</button></br >
+	  <h3>Send Us a Message!</h3>
+	<button type="button" class="btn btn-primary" onclick="location.href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Send Here!</button></br >
   
 	<h3>Contact List</h3><br />
 
@@ -108,14 +70,17 @@
 	  </button>
 	</div>
 	  <!-- Modal for Contact List -->
-	  <div class="modal fade" id="contactModal">
-		<div class="modal-dialog" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="contactModalLabel">Contact List</h5>
-			  <button type="button" class="close" data-dismiss="modal">
-			  </button>
-			</div>
+	<div class="modal fade" id="contactModal">
+	<div class="modal-dialog" role="document">
+	<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title" id="contactModalLabel">Contact List</h5>
+		<button type="button" class="close" data-dismiss="modal"></button>
+	</div>
+
+			
+
+
 			<div class="modal-body">
 					<div>
 							<fieldset style="border-color: red;">
@@ -126,6 +91,7 @@
 								<p>Friday 10:00 am to 7:00 pm</p>
 							</details>			
 							<ul>
+								
 								<li><legend><p>Bob Smith</p></legend></li>
 									<details>
 										<summary>Email and Phone</summary>
@@ -200,7 +166,7 @@
 
 
 
-
+<!-- google maps location -->
 
 <h2>Our Location</h2>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5014.806349498672!2d-114.0936984723271!3d51.06410711825886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716f9268a69e81%3A0x561733c721293299!2s1301%2016%20Ave%20NW%2C%20Calgary%2C%20AB%20T2M%204W7!5e0!3m2!1sen!2sca!4v1574192278283!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
@@ -216,8 +182,6 @@
 		
 
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- created by Ivan Lo-->	
 	</body>
 </html>
