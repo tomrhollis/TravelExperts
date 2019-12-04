@@ -10,185 +10,171 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
     <link
       href="https://fonts.googleapis.com/css?family=Quicksand:300,500"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen" />
+    <script src="navBar.js"></script>
+    <script src="RetrieveSQLData.js"></script>
   </head>
 
-  <style>
-    body {
-      background-image: url("media/island.jpg");
-
-      color: black;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 300;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-weight: 500;
-    }
-
-    .topnav {
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: rgba(240, 255, 255, 0.336);
-      
-      
-    }
-    #mysection {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-    .topnav a:hover {
-      background-color: #ddd;
-      color: black;
-    }
-
-    .tab-pane  {
-      /* background-color: rgba(255, 255, 255, 0.925); */
-      color: black;
-    }
-
-    .tab-pane a.active {
-      background-color: #e07ae94d;
-      color: rgba(255, 255, 255, 0);
-    }
-    .topnav a {
-      float: left;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    .topnav a.active {
-      background-color: #4caf50;
-      color: white;
-    }
-
-    .tab-menues {
-      font-size: 17px;
-      /* padding: 5px 15px; */
-      background-color: #ecc8f5;
-      opacity: 1;
-      color: azure;
-      
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%; 
-        margin-left: -250px;
-        margin-top: -100px;
-
-    }
-
-    .tabs-content {
-      font-size: 17px;
-    }
-
-    .copyright {
-            text-align: center;
-            bottom: -20vw;
-        }
-
-  </style>
-
   <body>
-    <div id="header">
-      <h1 style="color:rgb(255, 255, 255);text-align:center;">
-        <a
-          ><img
-            src="media/logo1.png"
-            title="our head office"
-            alt="Travel Agency Logo"
-            width="70"
-            height="70"
-        /></a>
-        Welcome to Travel Experts
-      </h1>
-    </div>
+    <section></section>
 
-    <div class="topnav"> 
-      <nav>
-        <a href="Exercise1.html">Home</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="register.html">Create an Account</a>
-        <a href="vacationPackages.html">Vacation Packages</a>
-        <a href="http://hotels.com">Hotels</a> <br /><br />
-      </nav>
+    <br />
+
+    <script>
+        getHttpRequest("/packagedata", data => {
+          var sqldata = JSON.parse(data);
+  
+          var table = document.getElementById("myTable");
+  
+          for (var i = 0; i < sqldata.length; i++) {
+            var row = table.insertRow(i + 1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+  
+            cell1.innerHTML = sqldata[i].PkgName;
+            cell2.innerHTML = sqldata[i].PkgBasePrice;
+            cell3.innerHTML = sqldata[i].PkgDesc;
+          }
+        });
+      </script>
+
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="media/image1.jpg" alt="image1" />
+          </div>
+
+          <div class="item">
+            <img src="media/image2.jpeg" alt="image2" />
+          </div>
+
+          <div class="item">
+            <img src="media/image3.jpg" alt="image3" />
+          </div>
+
+          <div class="item">
+            <img src="media/image4.jpg" alt="image4" />
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     </div>
 
     <br />
 
-    <div class="tab-menues justify-content-center"> 
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a data-toggle="tab" href="#home">Vacation Packages</a>
-        </li>
-        <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-        <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
-        
-      </ul>
+    <div class="container">
+      <!-- <div class="row"> -->
 
-      <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <div class="mysection">
-            <br />
-            <label for="origin">From </label>
-            <select name="origin" id="origin">
-              <option value="CL">Calgary</option>
-              <option value="EM">Edmonton</option>
-              <option value="TO">Toronto</option>
-              <option value="VC">Vancouver</option>
-            </select>
+        <table id="myTable" class="table table-responsive table-bordered-rounded ">
+      <thead>
+        <tr>
+          <td class="h6">Pacakage Name</td>
+          <td class="h6">Package Price</td>
+          <td class="h6">Package Description</td>
+        </tr>
+      </thead>
+    </table>
 
-            <label for="destination"> To </label>
-            <select name="destination" id="destination">
-              <option value="CN">London</option>
-              <option value="BF">Paris</option>
-              <option value="MJ">Prague</option>
-              <option value="RD">New York</option>
-            </select>
-        
+
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="media/image1.jpg" alt="image1" style="width:100%" />
+          <div class="cardText">
+            <h4><b>San Francisco</b></h4>
+            <p>Architect & Engineer</p>
           </div>
+          <p><button>Book</button></p>
+        </div>
+      </div>
 
-          <p></p>
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="media/image1.jpg" alt="image1" style="width:100%" />
+          <div class="cardText">
+            <h4><b>San Francisco</b></h4>
+            <p>Architect & Engineer</p>
+          </div>
+          <p><button>Book</button></p>
         </div>
-        <div id="menu1" class="tab-pane fade">
-          <h3>Menu 1</h3>
-          <p></p>
-        </div>
-        <div id="menu2" class="tab-pane fade">
-          <h3>Menu 2</h3>
-          <p></p>
-        </div>
-        <div id="menu3" class="tab-pane fade">
-          <h3>Menu 3</h3>
-          <p></p>
+      </div>
 
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="media/image1.jpg" alt="image1" style="width:100%" />
+          <div class="cardText">
+            <h4><b>San Francisco</b></h4>
+            <p>Architect & Engineer</p>
+          </div>
+          <p><button>Book</button></p>
         </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="card">
+          <img src="media/image1.jpg" alt="image1" style="width:100%" />
+          <div class="cardText">
+            <h4><b>San Francisco</b></h4>
+            <p>Architect & Engineer</p>
+            <div class="col-12">
+              <ul
+                id="mylist"
+                class="list-group text-info font-weight-bold align-self-center mt-2"
+              ></ul>
+              <!--    <script>
+                getHttpRequest("/packagedata", data => {
+                  var sqldata = JSON.parse(data);
+                  for (var i = 0; i < sqldata.length; i++) {
+                    var node = document.createElement("LI");
+                    var textnode = document.createTextNode(sqldata[i].PkgName);
+                    node.appendChild(textnode);
+                    document.getElementById("mylist").appendChild(node);
+                  }
+                  document
+                    .getElementById("mylist")
+                    .addEventListener("click", function() {
+                      myFunction();
+                    });
+                });
+              </script> -->
+            </div>
+          </div>
+        </div>
+        <p><button>Book</button></p>
       </div>
     </div>
 
-    <div id="footer">
+    
+    
+
+    <!-- </div> -->
+
+    <!-- <div id="footer">
       <p class="copyright">Copyright &copy; 2019</p>
-    </div>
+    </div> -->
   </body>
 </html>
-
-
