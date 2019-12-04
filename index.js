@@ -7,7 +7,7 @@ const sequelize = require('sequelize');
 const db = new sequelize('travelexperts', 'admin', 'password', {
     host: 'localhost', 
     dialect: 'mysql',
-    logging: sendToLog, // use the logging function below instead of console.log
+    logging: false, // stop spamming the log
     define: {
         timestamps: false // stops sequelize from trying to insert its own fields into the DB
     }
