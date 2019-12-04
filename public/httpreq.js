@@ -6,7 +6,7 @@
 //             have places in the page with IDs "Got[fieldname] for the returned data to go to"
 //             Node script returns a JSON object
 
-function requestUserCount(checkName){
+async function requestUserCount(checkName){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

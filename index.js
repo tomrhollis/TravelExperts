@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const moment = require('moment');
+const mysql = require("mysql");
 const sequelize = require('sequelize');
 const db = new sequelize('travelexperts', 'tombot', 'password', {
     host: 'localhost', 
@@ -12,6 +13,12 @@ const db = new sequelize('travelexperts', 'tombot', 'password', {
     }
 });
 const customers = require('./models/customers').model(db);
+var conn = mysql.createConnection({
+    host: "localhost",
+    user: "tombot",
+    password: "password",
+    database: "travelexperts"
+  });
 
 var port = 8027;
 
@@ -19,10 +26,15 @@ function sendToLog(message) {
 	var todaysDate = moment().format("YYYY-MM-DD | HH:mm:ss.SSS");
 	console.log("[" + todaysDate + "] " + message);
 }
+var usernames ="";
 
 db.sync().then(()=> { // with guidance from https://medium.com/@paigen11/sequelize-the-orm-for-sql-databases-with-nodejs-daa7c6d5aca3
     sendToLog('DB sync successful');
+    customers.findAll({ attributes: [[db.fn('DISTINCT', db.col('CustUsername')), 'CustUsername']] }).then((custs)=>{ //update the list
+        usernames = custs.map(value => value.CustUsername);
+    }); 
 }); // future: any error handling?
+
 
 app.listen(port, () => {
     sendToLog("Started Web Server on port " + port);
@@ -38,7 +50,11 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.get('/', (req, res) => {
-    res.render('vacationPackagesUPDATED', {});
+    conn.query("SELECT * FROM packages", (err, result) => {
+        if (err) throw err;
+        sendToLog(result);
+        res.render('vacationPackagesUPDATED', {result: result});
+      });
 });
 app.get('/index.html', (req, res) => {
     res.render('vacationPackagesUPDATED', {});
@@ -56,9 +72,12 @@ app.get('/vacationpackages.html', (req, res) => {
 //BEGIN FORM PROCESSING SECTION
 app.use(express.urlencoded({extended: true}));
 app.post("/regform", (req, res) => {
-    customers.create(req.body).then(function (customers) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
-        if (customers) { // if successful, send back to the main page for now
+    customers.create(req.body).then(function (customer) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
+        if (customer) { // if successful, send back to the main page for now
             res.redirect("/");
+            customers.findAll({ attributes: [[db.fn('DISTINCT', db.col('CustUsername')), 'CustUsername']] }).then((custs)=>{ //update the list
+                usernames = custs.map(value => value.CustUsername);
+            }); 
         } else {
             res.status(400).send('<!DOCTYPE html><html lang="en"><body><h1>400: Database Error</h1></body></html>');
         }
@@ -67,12 +86,19 @@ app.post("/regform", (req, res) => {
 
 
 app.post('/checkUsername', (req, res) => {
-    sendToLog("called checkUsername");
-    customers.count({where: {'CustUsername': req.body.CustUsername}}).then(function(c) {
-        sendToLog("Found " + c + "identical usernames");
-        res.status(200).send(c);
-    });
+
+    var c = 0;
+    if (usernames.includes(req.body.CustUsername)){
+        c = 1;
+    }
+    res.status(200).send("" + c);
+    sendToLog("" + c);
 });
+
+app.get("/packagedata", (req, res) => {
+    
+  });
+
 //END FORM PROCESSING SECTION
 
 
