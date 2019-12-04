@@ -1,0 +1,27 @@
+Next:
+
+
+THURSDAY:
+All presentation
+
+
+
+
+
+
+
+
+
+1) Make sure the selected username doesn't exist --> XMLHTTPRequest (for now import all usernames into node at the start)
+
+IN THE MIDDLE OF: getting it to call the request to get the username count. Getting node errors.
+
+
+
+2) Login page - check if username exists & password is good. if so say hi & go back to packages. if not go to registration
+3) format the data consistent with the database before insert
+4) How easy are sessions?
+   
+5) bootstrapify
+
+6) comments

@@ -1,0 +1,74 @@
+aside {
+    text-align: center;
+}
+aside > p{ 
+    visibility: hidden;
+    float: left;
+    clear: left;
+    margin: 0px;
+    width: 90%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: solid;
+    border-width: 1px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+fieldset{
+    padding-left: 1%;
+    padding-bottom: 1%;
+    border-bottom: dotted;
+    border-color: #dddddd;
+    border-width: 1px;
+    margin: 1%;
+}
+legend{
+    position: relative;
+    left: -1%;
+}			
+.formline{				
+    vertical-align: center;
+}
+label{
+    width: 12%;
+    padding-right: 1%;
+    text-align: right;
+}
+label.terms{
+    width: 22%;
+}
+input{
+    width: 18%;
+    background-color: #fefefe;
+    padding-left: 3px;
+}
+input#terms{
+    width: 2%;
+}
+[required="required"]{	
+    background-color: #fee0fe;
+}
+
+article{
+    background-color: rgba(238, 238, 238, 0.7);
+    padding: 1%;
+    border: dotted;
+    border-width: 1px;
+    border-color: #dddddd;
+    border-radius: 20px;
+    text-align: justify;
+    margin-bottom: 1%;
+    margin-top: 1%; 
+}
+
+.artitle{
+    border-bottom: dotted;
+    border-color: #dddddd;
+    border-width: 1px;
+    margin: 1%;
+}
+
+footer {
+    padding: 1%;
+    padding-bottom: 0.5%;
+    color:rgb(255, 255, 255);
+}

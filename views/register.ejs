@@ -1,0 +1,129 @@
+<!--
+	Travel Experts: The Website
+	Registration Page
+	
+	Group: Ivan, Muhammad, Steven, Tom
+	Page Author: Tom Hollis
+
+	GLOBAL TODO: finish or clear all other todos
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" href="mystyle.css" />
+		<link rel="stylesheet" href="register.css" />
+
+		<title>Travel Experts</title>	
+
+		<!-- Scripts for this page only -->
+		<script src="register.js"></script>
+
+			
+		<!-- @TODO: onblur to fix data formatting on phone number and postal code		
+		     @TODO: implement bootstrap as much as possible	-->
+	</head>
+	
+	<body class="container-fluid">
+		<%- include('navbar'); -%>
+		<main class="row">
+			<aside class="col-2">
+				<!-- no longer in use -->
+			</aside>
+			<article class="col-8">
+				<h2 class="artitle">Register for Service</h2>
+				<form method="post" action="http://localhost:8027/regform">
+					<fieldset>
+						<legend>What to Call You:</legend>
+						<div class="formline"><!-- @TODO: confirm whether both names are a business requirement -->
+							<label for="CustFirstName">First Name:</label> 
+							<input type="text" name="CustFirstName" id="CustFirstName" placeholder="Sam" required="required"  />
+							<label for="CustLastName">Last Name:</label> 
+							<input type="text" name="CustLastName" id="CustLastName" placeholder="Doe" required="required"  />
+						</div>
+						<div class="formline">
+							<label for="CustUsername">Username:</label> 
+							<input type="text" name="CustUsername" id="CustUsername" placeholder="SamDoe1234" required="required" />
+							<!-- @TODO: future - make sure username isn't already taken -->
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>How to Contact You:</legend>
+						<div class="formline"><!-- @TODO: server side, store all phone numbers in a consistent way. Note that work phone may have an extension. -->
+							<label for="CustHomePhone">Home Phone:</label> 
+							<input type="text" name="CustHomePhone" id="CustHomePhone" placeholder="587-555-5555" required="required" 
+									pattern="^1?\D*\d{3}\D*\d{3}\D*\d{4}$" title="Please enter a valid North American phone number" />
+							<label for="CustBusPhone">Work Phone:</label> 
+							<input type="text" name="CustBusPhone" id="CustBusPhone" placeholder="403-555-5555" pattern="^1?\D*\d{3}\D*\d{3}\D*\d{4}$" 
+									title="Please enter a valid North American phone number" />
+						</div>
+						<div class="formline">					
+							<label for="CustEmail">Email:</label> 
+							<input type="text" name="CustEmail" id="CustEmail" placeholder="sam.doe@email.com" required="required" 
+									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" />
+								<!-- email regexp pattern from W3Schools -->
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Where You Are:</legend>
+						<div class="formline">	
+							<label for="CustAddress">Street Address:</label> <input type="text" name="CustAddress" id="CustAddress" required="required" />
+						</div>
+						<div class="formline">	
+							<label for="CustCity">City:</label> 
+							<input type="text" name="CustCity" id="CustCity" required="required" />
+							<label for="CustProv">Province:</label> 
+							<select name="CustProv" id="CustProv" required="required" >
+								<option value="">Select a Province</option>
+								<option value="AB">Alberta</option>
+								<option value="BC">British Columbia</option>
+								<option value="MB">Manitoba</option>
+								<option value="NB">New Brunswick</option>
+								<option value="NL">Newfoundland &amp; Labrador</option>
+								<option value="NT">Northwest Territories</option>
+								<option value="NS">Nova Scotia</option>
+								<option value="NU">Nunavut</option>
+								<option value="ON">Ontario</option>
+								<option value="PE">Prince Edward Island</option>
+								<option value="QC">Quebec</option>
+								<option value="SK">Saskatchewan</option>
+								<option value="YT">Yukon</option>
+							</select>
+							<label for="CustPostal">Postal Code:</label> 
+							<input type="text" name="CustPostal" id="CustPostal" placeholder="A1A 1A1" required="required" 
+									pattern="^[abceghj-nprstvxyABCEGHJ-NPRSTVXY]\d[abceghj-nprstv-zABCEGHJ-NPRSTV-Z] ?\d[abceghj-nprstv-zABCEGHJ-NPRSTV-Z]\d$" 
+									title="Please enter a valid Canadian postal code" />
+						</div>						
+					</fieldset>
+					<fieldset>
+						<legend>Create a Password:</legend>
+						<div class="formline">	
+							<label for="CustPassword">Password:</label> 
+							<input type="password" name="CustPassword" id="CustPassword" required="required" />
+						</div>
+						<div class="formline">	
+							<label for="CustPassword2">Confirm Password:</label> 
+							<input type="password" id="CustPassword2" required="required" />
+						</div>
+					</fieldset>
+					<div class="formline">
+						<label for="terms" class="terms">I agree to the terms and conditions:</label> 
+						<input type="checkbox" id="terms" value="y" required="required" />
+					</div>
+					<input type="submit" value="Create Account" onclick="return confirmPress('submit');" />
+					<input type="reset" value="Reset Form" onclick="return confirmPress('reset');" />
+				</form>
+			</article>
+		</main>
+		<footer class="row">
+		  <p> &copy; 2019 Travel Experts</p>
+		</footer>
+	</body>
+</html>
