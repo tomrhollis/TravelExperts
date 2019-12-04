@@ -36,7 +36,7 @@ app.get("/vacationPackages.html", (req, res)=>{
 	conn.connect((err)=>{
 		if (err) throw err;
 		
-		var sql = "SELECT `PackageId`, `PkgName`, `PkgStartDate`, `PkgEndDate`, `PkgDesc`, `PkgBasePrice`, `PkgAgencyCommission` FROM `packages` WHERE 1";
+		var sql = "SELECT `PackageId`, `PkgName`, `PkgStartDate`, `PkgEndDate`, `PkgDesc`, `PkgBasePrice`, `PkgAgencyCommission` FROM `packages` WHERE "; //+ document.getElementByName("searchString");
 		conn.query(sql, (err, result, fields)=>{
 			if (err) throw err;
 			console.log(result);
