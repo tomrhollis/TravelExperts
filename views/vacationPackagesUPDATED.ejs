@@ -16,8 +16,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen" />
-    <script src="navBar.js"></script>
-    <script src="RetrieveSQLData.js"></script>
+    <!--<script src="navBar.js"></script>
+    <script src="RetrieveSQLData.js"></script>-->
   </head>
 
   <body>
@@ -25,7 +25,8 @@
 
     <br />
 
-
+    
+    <%- include('navbar'); -%>
     <div class="container">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -70,7 +71,7 @@
     <br />
 
     <div class="container">
-      <!-- <div class="row"> -->
+      <!-- <div class="row"> 
 
         <table id="myTable" class="table table-responsive table-bordered-rounded ">
       <thead>
@@ -80,22 +81,20 @@
           <td class="h6">Package Description</td>
         </tr>
       </thead>
-    </table>
+    </table>-->
 
-    <% result.forEach(function(packages) {
+      <% data.forEach(function(packages) { %>
       <div class="col-sm-3">
         <div class="card">
           <img src="media/image1.jpg" alt="image1" style="width:100%" />
           <div class="cardText">
-            <h4><b><%= packages.PkgName %>: <%= packages.PkgBasePrice %></b></h4>
+            <h4><b><%= packages.PkgName %></b></h4>
             <p><%= packages.PkgDesc %></p>
           </div>
           <p><button>Book</button></p>
         </div>
       </div>
-      <% }); %>
- 
-
+    <% }); %>
 <!--
       <div class="col-sm-3">
         <div class="card">
@@ -130,7 +129,22 @@
                 id="mylist"
                 class="list-group text-info font-weight-bold align-self-center mt-2"
               ></ul>-->
-           
+              <!--    <script>
+                getHttpRequest("/packagedata", data => {
+                  var sqldata = JSON.parse(data);
+                  for (var i = 0; i < sqldata.length; i++) {
+                    var node = document.createElement("LI");
+                    var textnode = document.createTextNode(sqldata[i].PkgName);
+                    node.appendChild(textnode);
+                    document.getElementById("mylist").appendChild(node);
+                  }
+                  document
+                    .getElementById("mylist")
+                    .addEventListener("click", function() {
+                      myFunction();
+                    });
+                });
+              </script> -->
             </div>
           </div>
         </div>

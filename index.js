@@ -4,7 +4,7 @@ const path = require('path');
 const moment = require('moment');
 const mysql = require("mysql");
 const sequelize = require('sequelize');
-const db = new sequelize('travelexperts', 'tombot', 'password', {
+const db = new sequelize('travelexperts', 'admin', 'password', {
     host: 'localhost', 
     dialect: 'mysql',
     logging: sendToLog, // use the logging function below instead of console.log
@@ -13,14 +13,14 @@ const db = new sequelize('travelexperts', 'tombot', 'password', {
     }
 });
 const customers = require('./models/customers').model(db);
-var conn = mysql.createConnection({
+var conn = mysql.createConnection({ // Author
     host: "localhost",
-    user: "tombot",
+    user: "admin",
     password: "password",
     database: "travelexperts"
   });
 
-var port = 8027;
+var port = 8000;
 
 function sendToLog(message) {
 	var todaysDate = moment().format("YYYY-MM-DD | HH:mm:ss.SSS");
@@ -49,24 +49,52 @@ app.use(express.static("public/media"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { // Authors: 
     conn.query("SELECT * FROM packages", (err, result) => {
         if (err) throw err;
-        sendToLog(result);
-        res.render('vacationPackagesUPDATED', {result: result});
+        sendToLog(JSON.stringify(result));
+        res.render('vacationPackagesUPDATED', {data: result});
       });
 });
 app.get('/index.html', (req, res) => {
-    res.render('vacationPackagesUPDATED', {});
+    res.redirect('/');
 });
 app.get('/register.html', (req, res) => {
     res.render("register", {});
 });
-app.get('/contact.html', (req, res) => {
-    res.render("contact", {});
+app.get('/contacts.html', (req, res) => {
+    var agencies = "Select AgencyId, AgncyAddress, AgncyCity, AgncyProv, AgncyPostal, AgncyPhone FROM agencies ORDER BY AgencyId ASC";
+    var agents = "Select AgtFirstName, AgtLastName, AgtBusPhone, AgtEmail, AgtPosition, AgencyId FROM agents ORDER BY AgencyId ASC";
+    var pageData = "{";
+
+    conn.query(agencies, (err, result1, fields1, rows2)=>{
+        if (err) {
+        console.log(err);
+        }
+        else {
+
+            conn.query(agents, (err, result2, fields2, rows2)=>{
+                if (err) {
+                console.log(err);
+                }
+                else {
+                    //console.log(result1);
+                    console.log(result2);
+                   res.render('contacts', {data1: result1, data2: result2});   
+            
+                }
+            });
+        } 
+    });
+});
+app.get('/contactsUPDATED.html', (req, res) => {
+    res.redirect("/contacts.html");
 });
 app.get('/vacationpackages.html', (req, res) => {
-    res.render("vacationPackages", {});
+    res.redirect("/");
+});
+app.get('/vacationpackagesUPDATED.html', (req, res) => {
+    res.redirect("/");
 });
 
 //BEGIN FORM PROCESSING SECTION
@@ -86,7 +114,6 @@ app.post("/regform", (req, res) => {
 
 
 app.post('/checkUsername', (req, res) => {
-
     var c = 0;
     if (usernames.includes(req.body.CustUsername)){
         c = 1;
