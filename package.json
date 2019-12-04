@@ -1,0 +1,31 @@
+{
+  "name": "travelexperts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "moment": "^2.24.0",
+    "mysql2": "^2.0.1",
+    "sequelize": "^5.21.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomrhollis/TravelExperts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomrhollis/TravelExperts/issues"
+  },
+  "homepage": "https://github.com/tomrhollis/TravelExperts#readme"
+}
