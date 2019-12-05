@@ -71,7 +71,6 @@ app.use(session({
 
 
 //STATIC PAGES
-//app.use(express.static("views", {extensions: ["html"]}));
 app.use(express.static("public"));
 app.use(express.static("public/media"));
 

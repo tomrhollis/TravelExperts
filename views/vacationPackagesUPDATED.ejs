@@ -23,12 +23,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen" />
-    <!--<script src="navBar.js"></script>
-    <script src="RetrieveSQLData.js"></script>-->
   </head>
 
   <body class="container-fluid">
-    <!-- <section></section> -->
 
     <%- include('navbar'); -%>
     <div class="container">
@@ -74,17 +71,6 @@
 
     <br />
 
-    <!-- <script>
-      var imgs[0] = new Image();
-      var imgs[0].src = "media/Caribbean New Year.jpg";
-      var imgs[1] = new Image();
-      var imgs[1].src = "media/alabama.jpg";
-      var imgs[2] = new Image();
-      var imgs[2].src = "";
-      var imgs[3] = new Image();
-      var imgs[3].src = "";
-    </script> -->
-
     <div class="container">
       <% data.forEach(function(packages) { %>
       <div class="col-sm-3">
@@ -107,10 +93,5 @@
       <% }); %>
       
     </div>
-    <!-- </div> -->
-
-    <!-- <div id="footer">
-      <p class="copyright">Copyright &copy; 2019</p>
-    </div> -->
   </body>
 </html>

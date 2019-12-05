@@ -28,46 +28,7 @@
 	<body id="body1" class="container-fluid">
 		<%- include('navbar'); -%>
 <section></section>
-		
-				
-
-<!-- Modal for Contact Form (experiment)
-	<div class="modal fade" id="modalContactForm">
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-		<div class="modal-header text-center">
-		  <h4 class="modal-title">Send Us a Message!</h4>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		  </button>
-		</div>
-
-		<div class="modal-body mx-3">
-		  <div class="modename">
-			<input type="text" id="modalname" class="form-control">
-			<label data-error="wrong" data-success="right" for="modalname">Your name</label>
-		  </div>
-  
-		  <div class="modemail">
-			<input type="email" id="modalemail" class="form-control">
-			<label data-error="wrong" data-success="right" for="modalemail">Your email</label>
-		  </div>
-  
-		  <div class="md-form">
-			<textarea type="text" id="modalmess" class="form-control" rows="4"></textarea>
-			<label data-error="wrong" data-success="right" for="modalmess">Your message</label>
-		  </div>
-  
-		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" onclick="return confirm('Continue the Submission?');">Send</button>
-		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		</div>
-	  </div>
-	</div>
-  </div>
--->
-
-
+	
 
   <!-- Button modal -->
   <div class="text-center">
@@ -79,56 +40,6 @@
 	<h3>Contact List</h3><br />
 
 
-
-<!-- old modal
-	  
-	<div class="modal fade" id="contactModal">
-	<div class="modal-dialog" role="document">
-	<div class="modal-content">
-	<div class="modal-header">
-		<h1 class="modal-title" id="contactModalLabel">Contact List</h1>
-		<button type="button" class="close" data-dismiss="modal"></button>
-	</div>
-
-
-	
-	<div class="row">
-			<% data1.forEach(function(agencies) { %>
-			<div class="col-xs-9"><legend><h2><p>Agency <%= agencies.AgencyId %></p></h2></legend></div>
-			<div class="col-xs-4"><legend><p>Address and phone</p></legend><br></div>
-			<div class="col-xs-6"><p>Address: <%= agencies.AgncyAddress %> <%= agencies.AgncyCity %> <%= agencies.AgncyProv %> <%= agencies.AgncyPostal %><div class="mapouter"><div class="gmap_canvas"><iframe width="250" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=1155%208th%20Ave%20SW%20Calgary%20AB&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.divi-discounts.com"></a></div><style>.mapouter{position:relative;text-align:right;height:250px;width:250px;}.gmap_canvas {overflow:hidden;background:none!important;height:250px;width:250px;}</style></div></p>
-				<p>Phone: <%= agencies.AgncyPhone %></p></div>
-		  </div><br>
-	
-			<div class="modal-body">
-					
-						</details>
-						<legend><h2><p>Agents</p></h2></legend>	
-						<% data2.forEach(function(agents) { %>
-							<% if (agents.AgencyId == agencies.AgencyId) { %>
-								<legend><p><%= agents.AgtFirstName %> <%= agents.AgtLastName %> (<%= agents.AgtPosition %>)</p></legend>
-								<div class="row">
-										<div class="col-sm-9">
-												<p>Phone: <%= agents.AgtBusPhone %></p>
-												<p>Email: <%= agents.AgtEmail %></p>
-										</div>
-								</div>	
-							<% }%>
-						<% }); %>
-					<% }); %>
-					
-			</div>
-
-
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-
-
-	-->	  
 
 <!-- Button modal -->
 <button type="button" style= "width:8%"  data-toggle="modal" data-target="#modalContacts">

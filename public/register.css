@@ -15,18 +15,11 @@ aside > p{
     clear: left;
     margin: 0px;
     width: 90%;
-    /* padding-left: 10%; */
     padding-right: 2%;
-    /* border: solid;
-    border-width: 1px; */
-    /* background-color: rgba(255, 255, 255, 0.5); */
 }
 fieldset{
     padding-left: 1%;
     padding-bottom: 1%;
-    /* border-bottom: dotted;
-    border-color: #dddddd;
-    border-width: 1px; */
     margin: 1%;
     display: block;
 }
@@ -36,51 +29,32 @@ legend{
 }			
 .formline{				
     vertical-align: center;
-    /* display: block; */
     
 }
 
 label{
-    /*width: 12%;*/
     padding-left: 2%;
     text-align: left;
     
 }
 label.terms{
-    /* width: 22%; */
     padding-left: 0px;
 }
 input{
-    /* padding-left: 20%;  */
-    /* width: 18%; */
-    /* background-color: #a5a5a571; */
     padding-left: 10px;
     display: block;
-    /* border-radius: 15px  */
     border: none;
     border-bottom: 1px solid #949494;
-    /* padding: 2px 5px; */
 }
 input#terms{
     width: 2%;
     float: left;
 }
-/* [required="required"]{	
-    background-color: #b3b2b365;
-} */
 
 article{
     background-color:#ffffff;
     padding: 1%;
-    /* border: dotted;
-    border-width: 1px; */
-    /* border-color: #dddddd; */
-    /* border-radius: 20px; */
     text-align: justify;
-    /* margin-bottom: 1%;
-    margin-top: 1%;  */
-    /* position: absolute; */
-    /* float: center; */
 }
 
 .artitle{
@@ -127,12 +101,4 @@ button {
 [type = "checkbox"]{
     margin-top: 6px;
 }
-
-/* input {
-    display: block;
-} */
-
-/* label {
-    margin-bottom: 20px;
-} */
 

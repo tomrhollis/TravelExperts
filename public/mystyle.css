@@ -47,7 +47,7 @@
     }
 
     .tab-pane  {
-      /* background-color: rgba(255, 255, 255, 0.925); */
+
       color: black;
     }
 
@@ -81,7 +81,6 @@
 
     .tab-menues {
       font-size: 17px;
-      /* padding: 5px 15px; */
       background-color: #ecc8f5;
       opacity: 1;
       color: azure;
@@ -89,10 +88,9 @@
         width: auto;
         height: auto;
         position: absolute;
-        /* top: 50%; */
         left: 50%; 
         margin-left: -250px;
-        /* margin-top: -100px; */
+
     
 
     }
