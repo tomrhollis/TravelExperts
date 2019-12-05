@@ -52,7 +52,7 @@ app.listen(port, () => {
 //SESSIONS (code from that link Harvey sent)
 app.use(session({
     secret: 'toeverybody',
-    store: new redisStore({ host: 'localhost', port: 6379, client: client,ttl : 260}),
+    store: new redisStore({ host: 'inversetiger.asuscomm.com', port: 6379, client: client,ttl : 260}),
     saveUninitialized: false,
     resave: false
 }));
