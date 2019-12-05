@@ -25,8 +25,8 @@
 		<title>Travel Experts</title>	
 
 		<style>
-			.formline{
-				text-align:center;
+			input {
+				margin-top: 10px;
 			}
 		</style>
 
@@ -42,29 +42,19 @@
 		<main class="row">
 			<!-- @TODO: change this to a single div that gets placed near (but NOT over) the focused field
 						can the "article" tag be col-8 and still float in the middle with 2 col spacing on the sides? -->
-			<aside class="col-4">
+			<aside class="col-5">
 				<!--cheesy spaceholder-->>
 			</aside>
 
-			<article class="col-4">
-				<h2 class="artitle" style="text-align:center">Log In to Your Account</h2>
+			<article class="col-2">
+				<h2 class="artitle" style="text-align:center">Log In</h2>
 				<form method="post" action="http://localhost:<%= port %>/doLogin">
-					<div class="formline">
-						<label for="CustUsername" class="col-2">Username:</label>
-						<input class="col-4" name="CustUsername" id="CustUsername" type="text" required="required" />
-					</div>
-					<div class="formline">
-						<label for="CustPassword" class="col-2">Password:</label>
-						<input class="col-4" name="CustPassword" id="CustPassword" type="password" required="required" />
-					</div>
-					<div class="formline" style="text-align:right">
-						<input type="submit" value="Log In" onclick="return checkData()" />
-					</div>
+					<input class="col-8" name="CustUsername" id="CustUsername" type="text" required="required" placeholder="Username"/>
+					<input class="col-8" name="CustPassword" id="CustPassword" type="password" required="required" placeholder="Password" />
+					<button type="submit" onclick="return checkData()">Log In</button>
 				</form>
 			</article>
 		</main>
-		<footer class="row">
-		  <p> &copy; 2019 Travel Experts</p>
-		</footer>
+
 	</body>
 </html>

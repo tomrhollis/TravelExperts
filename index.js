@@ -71,7 +71,7 @@ app.set("view engine", "ejs");
 app.get('/', (req, res) => { // Authors: 
     conn.query("SELECT * FROM packages", (err, result) => {
         if (err) throw err;
-        res.render('vacationPackagesUPDATED', {data: result, username: req.session.username});
+        res.render('vacationPackagesUPDATED', {data: result, username: req.session.username, moment: moment});
     });
 });
 app.get('/index.html', (req, res) => {
@@ -124,6 +124,7 @@ app.use(express.urlencoded({extended: true}));
 app.post("/regform", (req, res) => {
     customers.create(req.body).then(function (customer) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
         if (customer) { // if successful, send back to the main page for now
+            req.session.username = req.body.CustUsername;
             res.redirect("/");
             customers.findAll({ attributes: [[db.fn('DISTINCT', db.col('CustUsername')), 'CustUsername']] }).then((custs)=>{ //update the list
                 usernames = custs.map(value => value.CustUsername);
@@ -140,7 +141,6 @@ app.post('/checkUsername', (req, res) => {
     if (usernames.includes(req.body.CustUsername)){
         c = 1;
     }
-    sendToLog(c + " username matches found");
     res.status(200).send("" + c);
 });
 

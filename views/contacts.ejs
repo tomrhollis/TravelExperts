@@ -17,7 +17,7 @@
 		<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 	</head>
 
-	<body id="body1">
+	<body id="body1" class="container-fluid">
 		<%- include('navbar'); -%>
 <section></section>
 		
@@ -64,18 +64,16 @@
   <!-- Button modal -->
   <div class="text-center">
 	  <h3>Send Us a Message!</h3>
-	<button type="button" class="btn btn-primary" onclick="location.href='mailto:name@gTravelExperts.com'" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Send Here!</button></br >
+	<button type="button"  style= "width:8%"  onclick="location.href='mailto:name@gTravelExperts.com'"  data-toggle="modal" data-target="#modalContactForm">Send Here!</button></br >
   
+
+
 	<h3>Contact List</h3><br />
 
-<!-- Button modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
-		List
-	  </button>
-	</div>
 
 
-	  <!-- Modal for Contact List -->
+<!-- old modal
+	  
 	<div class="modal fade" id="contactModal">
 	<div class="modal-dialog" role="document">
 	<div class="modal-content">
@@ -85,14 +83,15 @@
 	</div>
 
 
-	<!--Ejs by Tom, Modal format by Ivan-->
+	
 	<div class="row">
 			<% data1.forEach(function(agencies) { %>
 			<div class="col-xs-9"><legend><h2><p>Agency <%= agencies.AgencyId %></p></h2></legend></div>
 			<div class="col-xs-4"><legend><p>Address and phone</p></legend><br></div>
-			<div class="col-xs-6"><p>Address: <%= agencies.AgncyAddress %> <%= agencies.AgncyCity %> <%= agencies.AgncyProv %> <%= agencies.AgncyPostal %></p>
+			<div class="col-xs-6"><p>Address: <%= agencies.AgncyAddress %> <%= agencies.AgncyCity %> <%= agencies.AgncyProv %> <%= agencies.AgncyPostal %><div class="mapouter"><div class="gmap_canvas"><iframe width="250" height="250" id="gmap_canvas" src="https://maps.google.com/maps?q=1155%208th%20Ave%20SW%20Calgary%20AB&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.divi-discounts.com"></a></div><style>.mapouter{position:relative;text-align:right;height:250px;width:250px;}.gmap_canvas {overflow:hidden;background:none!important;height:250px;width:250px;}</style></div></p>
 				<p>Phone: <%= agencies.AgncyPhone %></p></div>
 		  </div><br>
+	
 			<div class="modal-body">
 					
 						</details>
@@ -121,28 +120,66 @@
 	  </div>
 
 
+	-->	  
+
+<!-- Button modal -->
+<button type="button" style= "width:8%"  data-toggle="modal" data-target="#modalContacts">
+		List
+	  </button>
+	</div>
+	  
+	  <!-- Modal -->
+	  <div class="modal fade" id="modalContacts" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" >
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h1 class="modal-title" id="ModalTitle">Contact List</h1>
+			  <button type="button" class="close" data-dismiss="modal" >
+				
+			  </button>
+			</div>
+			<div class="modal-body">
+					<% data1.forEach(function(agencies) { %>
+						<h2><p>Agency <%= agencies.AgencyId %></p></h2>
+						<p>Address and phone</p>
+						<p>Address: <%= agencies.AgncyAddress %> <%= agencies.AgncyCity %> <%= agencies.AgncyProv %> <%= agencies.AgncyPostal %>
+				<p>Phone: <%= agencies.AgncyPhone %>
+					<h2><p>Agents</p></h2>	
+						<% data2.forEach(function(agents) { %>
+							<% if (agents.AgencyId == agencies.AgencyId) { %>
+								<p><h4><%= agents.AgtFirstName %> <%= agents.AgtLastName %> (<%= agents.AgtPosition %>)</p></h4>
+								
+												<p>Phone: <%= agents.AgtBusPhone %></p>
+												<p>Email: <%= agents.AgtEmail %></p>
+									<% }%>
+						<% }); %>
+					<% }); %>
+					
+					</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
 <!-- google maps location -->
 
 
 <center><div>
-	<h1>Agency 1 Location --- Agency 2 Location</h1>
+	<h2>Agency 1 Location --- Agency 2 Location</h>
 </div></center>
 
 
 <center><section>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.369258766609!2d-114.0881913605961!3d51.04626923152061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe76e972489%3A0x149461cedf5b7c5b!2s1155%208%20Ave%20SW%2C%20Calgary%2C%20AB!5e0!3m2!1sen!2sca!4v1575487398265!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.369258766609!2d-114.0881913605961!3d51.04626923152061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe76e972489%3A0x149461cedf5b7c5b!2s1155%208%20Ave%20SW%2C%20Calgary%2C%20AB!5e0!3m2!1sen!2sca!4v1575487398265!5m2!1sen!2sca" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 	
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2508.369258766609!2d-114.0881913605961!3d51.04626923152061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716fe76e972489%3A0x149461cedf5b7c5b!2s1155%208%20Ave%20SW%2C%20Calgary%2C%20AB!5e0!3m2!1sen!2sca!4v1575487398265!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2525.6837422734725!2d-113.98241892983091!3d50.725806185921236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537198347306240b%3A0xa90acff1ce491a75!2sElizabeth%20St%2C%20Okotoks%2C%20AB!5e0!3m2!1sen!2sca!4v1575570133912!5m2!1sen!2sca" width="300" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 	</section></center>
 
 	
 	
-	<div id="footer">
-			<footer>
-		<p>Copyright &copy; 2019 Travel Experts</p>
-	</footer>
 
-	</div>
 	
 
 		

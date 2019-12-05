@@ -20,12 +20,9 @@
     <script src="RetrieveSQLData.js"></script>-->
   </head>
 
-  <body>
-    <section></section>
+  <body class="container-fluid">
+    <!-- <section></section> -->
 
-    <br />
-
-    
     <%- include('navbar'); -%>
     <div class="container">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -40,19 +37,19 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
-            <img src="media/image1.jpg" alt="image1" />
+            <img src="media/Caribbean New Year.jpg" alt="image1" />
           </div>
 
           <div class="item">
-            <img src="media/image2.jpeg" alt="image2" />
+            <img src="media/Polynesian Paradise.jpg" alt="image2" />
           </div>
 
           <div class="item">
-            <img src="media/image3.jpg" alt="image3" />
+            <img src="media/Asian Expedition.jpg" alt="image3" />
           </div>
 
           <div class="item">
-            <img src="media/image4.jpg" alt="image4" />
+            <img src="media/European Vacation.jpg" alt="image4" />
           </div>
         </div>
 
@@ -70,91 +67,39 @@
 
     <br />
 
+    <!-- <script>
+      var imgs[0] = new Image();
+      var imgs[0].src = "media/Caribbean New Year.jpg";
+      var imgs[1] = new Image();
+      var imgs[1].src = "media/alabama.jpg";
+      var imgs[2] = new Image();
+      var imgs[2].src = "";
+      var imgs[3] = new Image();
+      var imgs[3].src = "";
+    </script> -->
+
     <div class="container">
-      <!-- <div class="row"> 
-
-        <table id="myTable" class="table table-responsive table-bordered-rounded ">
-      <thead>
-        <tr>
-          <td class="h6">Pacakage Name</td>
-          <td class="h6">Package Price</td>
-          <td class="h6">Package Description</td>
-        </tr>
-      </thead>
-    </table>-->
-
       <% data.forEach(function(packages) { %>
       <div class="col-sm-3">
         <div class="card">
-          <img src="media/image1.jpg" alt="image1" style="width:100%" />
+          <img
+            src="<%=packages.PkgName%>.jpg"
+            alt="<%= packages.PkgName %>"
+            style="width:100%"
+          />
           <div class="cardText">
-            <h4><b><%= packages.PkgName %></b></h4>
+            <h4 style="text-align: center"><b><%= packages.PkgName %></b></h4>
             <p><%= packages.PkgDesc %></p>
+            <p>Price: <%= packages.PkgBasePrice %>$</p>
+            <p>Start Date: <%= moment(packages.PkgStartDate).format('MMM-DD-YYYY') %></p>
+            <p>End Date: <%= moment(packages.PkgEndDate).format('MMM-DD-YYYY') %></p>
           </div>
-          <p><button>Book</button></p>
+          <p><button onclick="alert('Booked!')">Book</button></p>
         </div>
       </div>
-    <% }); %>
-<!--
-      <div class="col-sm-3">
-        <div class="card">
-          <img src="media/image1.jpg" alt="image1" style="width:100%" />
-          <div class="cardText">
-            <h4><b>San Francisco</b></h4>
-            <p>Architect & Engineer</p>
-          </div>
-          <p><button>Book</button></p>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card">
-          <img src="media/image1.jpg" alt="image1" style="width:100%" />
-          <div class="cardText">
-            <h4><b>San Francisco</b></h4>
-            <p>Architect & Engineer</p>
-          </div>
-          <p><button>Book</button></p>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card">
-          <img src="media/image1.jpg" alt="image1" style="width:100%" />
-          <div class="cardText">
-            <h4><b>San Francisco</b></h4>
-            <p>Architect & Engineer</p>
-            <div class="col-12">
-              <ul
-                id="mylist"
-                class="list-group text-info font-weight-bold align-self-center mt-2"
-              ></ul>-->
-              <!--    <script>
-                getHttpRequest("/packagedata", data => {
-                  var sqldata = JSON.parse(data);
-                  for (var i = 0; i < sqldata.length; i++) {
-                    var node = document.createElement("LI");
-                    var textnode = document.createTextNode(sqldata[i].PkgName);
-                    node.appendChild(textnode);
-                    document.getElementById("mylist").appendChild(node);
-                  }
-                  document
-                    .getElementById("mylist")
-                    .addEventListener("click", function() {
-                      myFunction();
-                    });
-                });
-              </script> -->
-            </div>
-          </div>
-        </div>
-        <p><button>Book</button></p>
-      </div>
+      <% }); %>
+      
     </div>
-
-    
-    
-
     <!-- </div> -->
 
     <!-- <div id="footer">

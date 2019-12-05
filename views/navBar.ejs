@@ -1,30 +1,34 @@
 <!-- Header/NavBar template by Muhammad, to EJS by Tom -->
-    <header class="row">
-      <h1 class="col-12" style="color:rgb(255, 255, 255);text-align:center;">
-        <a><img
-            src="logo1.png"
-            title="our head office"
-            alt="Travel Agency Logo"
-            width="70"
-            height="70"
-        /></a>
-        Travel Experts
-      </h1>
-      <div style="position:absolute; right:5px">
-        <% if (username) { %>
-          <div>Logged in as <%= username %></div>
-          <div><a href="logout.html">Log out</a></div>
-        <% } else { %>
-          <a href="login.html">Log in</a> to book today!
-        <% } %>
-      </div>
-    </header>
-
+    <!-- <header class="row"> -->
     <div class="row"> 
       <nav class="col-12 topnav">
-        <a href="vacationPackagesUPDATED.html">Vacation Packages</a>
+        <a href="vacationPackagesUPDATED.html">Travel Experts</a>
+        
         <a href="contacts.html">Contact Us</a>
-        <a href="login.html">Log In</a>
         <a href="register.html">Create an Account</a>
+        <div style="position:absolute; right:5px; vertical-align:middle">
+          <% if (username) { %>
+            <div style="float:right"><a href="logout.html">Log out</a></div>
+            <div style="float:right;position:relative;top:20px">Logged in as <%= username %></div>
+          <% } else { %>
+            <div style="float:right"><a href="login.html">Log in</a></div>
+            <div style="float:right;position:relative;top:20px">Log in to get away today!</div>
+          <% } %>
+        </div>
       </nav>
     </div>
+
+    <!-- <script>
+        window.onscroll = function() {navFunction()};
+        
+        var navbar = document.getElementById("topnav");
+        var sticky = navbar.offsetTop;
+        
+        function navFunction() {
+          if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+          } else {
+            navbar.classList.remove("sticky");
+          }
+        }
+        </script> -->
