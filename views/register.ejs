@@ -17,7 +17,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet" />
+
 		<link rel="stylesheet" href="mystyle.css" />
 		<link rel="stylesheet" href="register.css" />
 
@@ -39,7 +40,7 @@
 			</aside>
 			<article class="col-8">
 				<h2 class="artitle">Register for Service</h2>
-				<form method="post" action="http://localhost:8027/regform">
+				<form method="post" action="http://localhost:<%= port %>/regform">
 					<fieldset>
 						<legend>What to Call You:</legend>
 						<div class="formline"><!-- @TODO: confirm whether both names are a business requirement -->

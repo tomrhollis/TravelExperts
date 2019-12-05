@@ -1,8 +1,14 @@
-Next:
+* create login page - if successful send to register
+* have it check for username exist
+* dummy div on the right side of the navbar showing whether logged in or not
 
 
-THURSDAY:
-All presentation
+
+
+
+
+
+
 
 
 
@@ -25,3 +31,7 @@ IN THE MIDDLE OF: getting it to call the request to get the username count. Gett
 5) bootstrapify
 
 6) comments
+
+
+
+

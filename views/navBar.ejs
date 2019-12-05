@@ -10,14 +10,21 @@
         /></a>
         Travel Experts
       </h1>
+      <div style="position:absolute; right:5px">
+        <% if (username) { %>
+          <div>Logged in as <%= username %></div>
+          <div><a href="logout.html">Log out</a></div>
+        <% } else { %>
+          <a href="login.html">Log in</a> to book today!
+        <% } %>
+      </div>
     </header>
 
     <div class="row"> 
       <nav class="col-12 topnav">
-        <a href="vacationPackagesUPDATED.html">Home</a>
+        <a href="vacationPackagesUPDATED.html">Vacation Packages</a>
         <a href="contacts.html">Contact Us</a>
+        <a href="login.html">Log In</a>
         <a href="register.html">Create an Account</a>
-        <a href="vacationPackages.html">Vacation Packages</a>
-        <a href="http://hotels.com">Hotels</a> <br /><br />
       </nav>
     </div>
