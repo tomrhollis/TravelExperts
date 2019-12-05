@@ -8,7 +8,6 @@ const mysql = require("mysql");
 const sequelize = require('sequelize');
 const app = express();
 const client = redis.createClient();
-const router = express.Router();
 
 function sendToLog(message) {
 	var todaysDate = moment().format("YYYY-MM-DD | HH:mm:ss.SSS");
