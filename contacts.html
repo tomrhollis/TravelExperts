@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- created by Ivan Lo-->
+<html>
+	<head>
+		<title>Contact Us</title>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+		rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="navBar.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
+	</head>
+
+	<body id="body1">
+<section></section>
+		<center><h1>Travel Experts</h1></center>
+				
+
+<!-- Modal for Contact Form -->
+	<div class="modal fade" id="modalContactForm">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header text-center">
+		  <h4 class="modal-title">Send Us a Message!</h4>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  </button>
+		</div>
+
+		<div class="modal-body mx-3">
+		  <div class="modename">
+			<input type="text" id="modalname" class="form-control">
+			<label data-error="wrong" data-success="right" for="modalname">Your name</label>
+		  </div>
+  
+		  <div class="modemail">
+			<input type="email" id="modalemail" class="form-control">
+			<label data-error="wrong" data-success="right" for="modalemail">Your email</label>
+		  </div>
+  
+		  <div class="md-form">
+			<textarea type="text" id="modalmess" class="form-control" rows="4"></textarea>
+			<label data-error="wrong" data-success="right" for="modalmess">Your message</label>
+		  </div>
+  
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" onclick="return confirm('Continue the Submission?');">Send</button>
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  <!-- Button modal -->
+  <div class="text-center">
+	  <h3>Send Us a Message!</h3>
+	<button type="button" class="btn btn-primary" onclick="location.href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Send Here!</button></br >
+  
+	<h3>Contact List</h3><br />
+
+<!-- Button modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal">
+		List
+	  </button>
+	</div>
+	  <!-- Modal for Contact List -->
+	<div class="modal fade" id="contactModal">
+	<div class="modal-dialog" role="document">
+	<div class="modal-content">
+	<div class="modal-header">
+		<h5 class="modal-title" id="contactModalLabel">Contact List</h5>
+		<button type="button" class="close" data-dismiss="modal"></button>
+	</div>
+
+			
+
+
+			<div class="modal-body">
+					<div>
+							<fieldset style="border-color: red;">
+								<legend><h3><p>Agents</p></h3></legend>
+									<details>
+								<summary>Business Hours</summary>
+								<p>Monday - Thursday  9:00 am to 6:00 pm</p>
+								<p>Friday 10:00 am to 7:00 pm</p>
+							</details>			
+							<ul>
+								
+								<li><legend><p>Bob Smith</p></legend></li>
+									<details>
+										<summary>Email and Phone</summary>
+										<p>403-888-9999</p>
+										<p>bob.smith@travelexperts.com</p>
+							</details>	
+								<li><legend><p>Jess Long</p></legend></li>
+									<details>
+										<summary>Email and Phone</summary>
+										<p>403-888-5555</p>
+										<p>jess.long@travelexperts.com</p>		
+							</ul>
+						</div>
+							</fieldset>
+							
+						<div>
+							<fieldset id="field1" style="border-color: blue;">
+								<legend><h3><p>Customer Service</p></h3></legend>
+									<details>
+								<summary>Business Hours</summary>
+								<p>Monday - Thursday  8:00 am to 6:00 pm</p>
+								<p>Friday 10:00 am to 7:00 pm</p>
+							</details>
+									<ul>
+										<li><legend><p>Sam Short</p></legend></li>
+											<details>
+												<summary>Email and Phone</summary>
+												<p>403-888-2222</p>
+												<p>sam.short@travelexperts.com</p>
+							</details>							
+										<li><legend><p>Meli Mel</p></legend></li>
+											<details>
+												<summary>Email and Phone</summary>
+												<p>403-888-3333</p>
+												<p>meli.mel@travelexperts.com</p>
+									</ul>
+						</div>
+							</fieldset>
+							
+						<div>
+							<fieldset style="border-color: green;">
+								<legend><h3><p>Head Office</p></h3></legend>
+							<details>
+								<summary>Business Hours</summary>
+								<p>Monday - Thursday  9:00 am to 6:00 pm</p>
+								<p>Friday 9:00 am to 4:00 pm</p>
+							</details>
+									<ul>
+								<li><legend><p>John Doe</p></legend></li>
+									<details>
+										<summary>Email and Phone</summary>
+										<p>403-888-4444</p>
+										<p>john.doe@travelexperts.com</p>
+							</details>
+								<li><legend><p>Wayne Miler</p></legend></li>
+									<details>
+										<summary>Email and Phone</summary>
+										<p>403-888-6655</p>
+										<p>wayne.miler@travelexperts.com</p>
+							</details>
+									</ul>
+							</fieldset>
+						</div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
+
+
+<!-- google maps location -->
+
+<h2>Our Location</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5014.806349498672!2d-114.0936984723271!3d51.06410711825886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53716f9268a69e81%3A0x561733c721293299!2s1301%2016%20Ave%20NW%2C%20Calgary%2C%20AB%20T2M%204W7!5e0!3m2!1sen!2sca!4v1574192278283!5m2!1sen!2sca" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+	
+	<footer>
+	
+	<div id="footer">
+		<p>Copyright &copy; 2019 Travel Experts</p>
+	</footer>
+	</div>
+	
+
+		
+
+
+	<!-- created by Ivan Lo-->	
+	</body>
+</html>
