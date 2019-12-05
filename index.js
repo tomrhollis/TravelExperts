@@ -6,9 +6,7 @@
     Primary Page Author: Everyone contributed the code related to their pages
 */
 
-
-
-
+// IMPORTS
 const express = require('express');
 const session = require('express-session');
 const redis = require('redis');
@@ -20,13 +18,15 @@ const sequelize = require('sequelize');
 const app = express();
 const client = redis.createClient();
 
+// Custom log formatting
 function sendToLog(message) {
 	var todaysDate = moment().format("YYYY-MM-DD | HH:mm:ss.SSS");
 	console.log("[" + todaysDate + "] " + message);
 }
 
 //INITIALIZE DATABASE CONNECTIONS
-const db = new sequelize('travelexperts', 'admin', 'password', {
+// Sequelize for registration-related code
+const db = new sequelize('travelexperts', 'admin', 'password', { 
     host: 'localhost', 
     dialect: 'mysql',
     logging: false, // stop spamming the log
@@ -43,6 +43,7 @@ db.sync().then(()=> { // with guidance from https://medium.com/@paigen11/sequeli
     }); 
 }); // future: any error handling?
 
+// mySQL for other pages' code
 var conn = mysql.createConnection({ // Author
     host: "localhost",
     user: "admin",
@@ -54,13 +55,12 @@ var conn = mysql.createConnection({ // Author
 
 //START SERVER
 var port = 8000;
-
 app.listen(port, () => {
     sendToLog("Started Web Server on port " + port);
 });
 
 
-//SESSIONS (code from that link Harvey sent)
+//CONNECT TO SESSION SERVER (code from that link Harvey sent)
 app.use(session({
     secret: 'toeverybody',
     store: new redisStore({ host: 'inversetiger.asuscomm.com', port: 6379, client: client,ttl : 260}),
@@ -69,27 +69,34 @@ app.use(session({
 }));
 
 
-
-//STATIC PAGES
+//STATIC PAGES (for things that aren't views -- images, javascript & CSS)
 app.use(express.static("public"));
 app.use(express.static("public/media"));
 
-//DYNAMIC PAGES
+
+//DYNAMIC PAGE PROCESSING
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.get('/', (req, res) => { // Authors: 
+ // Main page processing
+app.get('/', (req, res) => {
     conn.query("SELECT * FROM packages", (err, result) => {
         if (err) throw err;
         res.render('vacationPackagesUPDATED', {data: result, username: req.session.username, moment: moment});
     });
 });
+    // In case old link names remain somewhere
 app.get('/index.html', (req, res) => {
     res.redirect('/');
 });
-app.get('/register.html', (req, res) => {
-    res.render("register", {username: req.session.username, port: port});
+app.get('/vacationpackages.html', (req, res) => {
+    res.redirect("/");
 });
+app.get('/vacationpackagesUPDATED.html', (req, res) => {
+    res.redirect("/");
+});
+
+ // Contacts page processing
 app.get('/contacts.html', (req, res) => {
     var agencies = "Select AgencyId, AgncyAddress, AgncyCity, AgncyProv, AgncyPostal, AgncyPhone FROM agencies ORDER BY AgencyId ASC";
     var agents = "Select AgtFirstName, AgtLastName, AgtBusPhone, AgtEmail, AgtPosition, AgencyId FROM agents ORDER BY AgencyId ASC";
@@ -111,14 +118,14 @@ app.get('/contacts.html', (req, res) => {
         } 
     });
 });
+  // In case an old link name remains
 app.get('/contactsUPDATED.html', (req, res) => {
     res.redirect("/contacts.html");
 });
-app.get('/vacationpackages.html', (req, res) => {
-    res.redirect("/");
-});
-app.get('/vacationpackagesUPDATED.html', (req, res) => {
-    res.redirect("/");
+
+ // Registration/login pages
+app.get('/register.html', (req, res) => {
+    res.render("register", {username: req.session.username, port: port});
 });
 app.get('/login.html', (req, res) => {
     res.render("login", {login: false, port: port, username: null});
@@ -127,10 +134,13 @@ app.get('/logout.html', (req, res) => {
     req.session.username = "";
     res.redirect('/');
 });
+//END DYNAMIC PAGE PROCESSING
 
 
 //BEGIN FORM PROCESSING SECTION
 app.use(express.urlencoded({extended: true}));
+
+ // Registration form processing & database entry
 app.post("/regform", (req, res) => {
     customers.create(req.body).then(function (customer) { // with help from https://stackoverflow.com/questions/52161821/insert-a-new-record-in-nodejs-using-sequelize-post-method/52162653
         if (customer) { // if successful, send back to the main page for now
@@ -145,7 +155,7 @@ app.post("/regform", (req, res) => {
    });
 });
 
-
+ // XMLHTTPRequest check for username existing
 app.post('/checkUsername', (req, res) => {
     var c = 0;
     if (usernames.includes(req.body.CustUsername)){
@@ -154,7 +164,7 @@ app.post('/checkUsername', (req, res) => {
     res.status(200).send("" + c);
 });
 
-
+ // XMLHTTPRequest check for correct password
 app.post('/checkPassword', (req, res) => {
     customers.findOne({where: {CustUsername: req.body.CustUsername}, attributes: ['CustPassword']}).then((pw) => {
         if(JSON.stringify(req.body.CustPassword) == JSON.stringify(pw.CustPassword)) {
@@ -163,9 +173,9 @@ app.post('/checkPassword', (req, res) => {
             res.status(200).send("Bad");
         }
     });
-    
-    
 });
+
+ // Successful login update
 app.post('/doLogin', (req, res) => {
     req.session.username = req.body.CustUsername;
     res.redirect('/');
