@@ -1,4 +1,10 @@
-
+/*
+	Travel Experts: The Website
+	Login script
+	
+	Group: Ivan, Muhammad, Steven, Tom
+    Primary Page Author: Tom
+*/
 
 function requestUserCount(){
     var xhttp = new XMLHttpRequest();

@@ -1,3 +1,14 @@
+/*
+	Travel Experts: The Website
+	Node.JS server
+	
+	Group: Ivan, Muhammad, Steven, Tom
+    Primary Page Author: Everyone contributed the code related to their pages
+*/
+
+
+
+
 const express = require('express');
 const session = require('express-session');
 const redis = require('redis');

@@ -1,3 +1,10 @@
+/*
+	Travel Experts: The Website
+	Registration scripts (mostly the same as the login scripts)
+	
+	Group: Ivan, Muhammad, Steven, Tom
+    Primary Page Author: Tom
+*/
 
 function requestUserCount(checkName){
     
